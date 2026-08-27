@@ -1,0 +1,791 @@
+{
+  "FG000008": {
+    "product_name": "6013-SB-10-WOT",
+    "suggest": [
+      "FG000528",
+      "FG000105"
+    ],
+    "reason": "Welders buying general purpose E6013 rods often need abrasive cut-off wheels for metal preparation, and E7018 rods for structural/high-strength welds."
+  },
+  "FG000307": {
+    "product_name": "6013-SB-10-WT",
+    "suggest": [
+      "FG000529",
+      "FG000104"
+    ],
+    "reason": "Welders buying general purpose E6013 rods often need abrasive cut-off wheels for metal preparation, and E7018 rods for structural/high-strength welds."
+  },
+  "FG000003": {
+    "product_name": "6013-SB-12-WOT",
+    "suggest": [
+      "FG000529",
+      "FG000104"
+    ],
+    "reason": "Welders buying general purpose E6013 rods often need abrasive cut-off wheels for metal preparation, and E7018 rods for structural/high-strength welds."
+  },
+  "FG000310": {
+    "product_name": "6013-SB-12-WT",
+    "suggest": [
+      "FG000523",
+      "FG000106"
+    ],
+    "reason": "Welders buying general purpose E6013 rods often need abrasive cut-off wheels for metal preparation, and E7018 rods for structural/high-strength welds."
+  },
+  "FG000002": {
+    "product_name": "6013-SB-14-WOT",
+    "suggest": [
+      "FG000525",
+      "FG000105"
+    ],
+    "reason": "Welders buying general purpose E6013 rods often need abrasive cut-off wheels for metal preparation, and E7018 rods for structural/high-strength welds."
+  },
+  "FG000001": {
+    "product_name": "6013-SB-16-WOT",
+    "suggest": [
+      "FG000530",
+      "FG000106"
+    ],
+    "reason": "Welders buying general purpose E6013 rods often need abrasive cut-off wheels for metal preparation, and E7018 rods for structural/high-strength welds."
+  },
+  "FG000006": {
+    "product_name": "6013-SB-6-WOT",
+    "suggest": [
+      "FG000527",
+      "FG000105"
+    ],
+    "reason": "Welders buying general purpose E6013 rods often need abrasive cut-off wheels for metal preparation, and E7018 rods for structural/high-strength welds."
+  },
+  "FG000011": {
+    "product_name": "6013-SB-8-WOT",
+    "suggest": [
+      "FG000530",
+      "FG000104"
+    ],
+    "reason": "Welders buying general purpose E6013 rods often need abrasive cut-off wheels for metal preparation, and E7018 rods for structural/high-strength welds."
+  },
+  "FG000309": {
+    "product_name": "6013-SB-8-WT",
+    "suggest": [
+      "FG000560",
+      "FG000105"
+    ],
+    "reason": "Welders buying general purpose E6013 rods often need abrasive cut-off wheels for metal preparation, and E7018 rods for structural/high-strength welds."
+  },
+  "FG000050": {
+    "product_name": "6013SS-10-WOT",
+    "suggest": [
+      "FG000548",
+      "FG000106"
+    ],
+    "reason": "Welders buying general purpose E6013 rods often need abrasive cut-off wheels for metal preparation, and E7018 rods for structural/high-strength welds."
+  },
+  "FG000046": {
+    "product_name": "6013SS-12-WOT",
+    "suggest": [
+      "FG000527",
+      "FG000105"
+    ],
+    "reason": "Welders buying general purpose E6013 rods often need abrasive cut-off wheels for metal preparation, and E7018 rods for structural/high-strength welds."
+  },
+  "FG000066": {
+    "product_name": "6013SS-6-WOT",
+    "suggest": [
+      "FG000523",
+      "FG000102"
+    ],
+    "reason": "Welders buying general purpose E6013 rods often need abrasive cut-off wheels for metal preparation, and E7018 rods for structural/high-strength welds."
+  },
+  "FG000062": {
+    "product_name": "6013SS-8-WOT",
+    "suggest": [
+      "FG000527",
+      "FG000105"
+    ],
+    "reason": "Welders buying general purpose E6013 rods often need abrasive cut-off wheels for metal preparation, and E7018 rods for structural/high-strength welds."
+  },
+  "FG000104": {
+    "product_name": "7018-10-450",
+    "suggest": [
+      "FG000527",
+      "FG000002"
+    ],
+    "reason": "For structural welding with E7018, E6013 is often used for root or tack passes. Cut-off wheels are also essential for joint preparation."
+  },
+  "FG000102": {
+    "product_name": "7018-12",
+    "suggest": [
+      "FG000559",
+      "FG000050"
+    ],
+    "reason": "For structural welding with E7018, E6013 is often used for root or tack passes. Cut-off wheels are also essential for joint preparation."
+  },
+  "FG000106": {
+    "product_name": "7018-6",
+    "suggest": [
+      "FG000529",
+      "FG000046"
+    ],
+    "reason": "For structural welding with E7018, E6013 is often used for root or tack passes. Cut-off wheels are also essential for joint preparation."
+  },
+  "FG000105": {
+    "product_name": "7018-8",
+    "suggest": [
+      "FG000560",
+      "FG000066"
+    ],
+    "reason": "For structural welding with E7018, E6013 is often used for root or tack passes. Cut-off wheels are also essential for joint preparation."
+  },
+  "FG000034": {
+    "product_name": "308L-10",
+    "suggest": [
+      "FG000523"
+    ],
+    "reason": "When welding stainless steel, dedicated clean cut-off wheels are needed to avoid carbon contamination before welding."
+  },
+  "FG000033": {
+    "product_name": "308L-12",
+    "suggest": [
+      "FG000526"
+    ],
+    "reason": "When welding stainless steel, dedicated clean cut-off wheels are needed to avoid carbon contamination before welding."
+  },
+  "FG000032": {
+    "product_name": "308L-14",
+    "suggest": [
+      "FG000559"
+    ],
+    "reason": "When welding stainless steel, dedicated clean cut-off wheels are needed to avoid carbon contamination before welding."
+  },
+  "FG000052": {
+    "product_name": "309L-10",
+    "suggest": [
+      "FG000560"
+    ],
+    "reason": "When welding stainless steel, dedicated clean cut-off wheels are needed to avoid carbon contamination before welding."
+  },
+  "FG000051": {
+    "product_name": "309L-12",
+    "suggest": [
+      "FG000548"
+    ],
+    "reason": "When welding stainless steel, dedicated clean cut-off wheels are needed to avoid carbon contamination before welding."
+  },
+  "FG000154": {
+    "product_name": "CINM-10-20KG",
+    "suggest": [
+      "FG000508"
+    ],
+    "reason": "Cutting and grinding wheels are universally used alongside specialty welding electrodes for surface preparation."
+  },
+  "FG000159": {
+    "product_name": "CI FE NI-10-PKT",
+    "suggest": [
+      "FG000530"
+    ],
+    "reason": "Cutting and grinding wheels are universally used alongside specialty welding electrodes for surface preparation."
+  },
+  "FG000175": {
+    "product_name": "CUT ROD-6",
+    "suggest": [
+      "FG000528"
+    ],
+    "reason": "Cutting and grinding wheels are universally used alongside specialty welding electrodes for surface preparation."
+  },
+  "FG000526": {
+    "product_name": "AB-CW-UT-04-12-107-D-BK",
+    "suggest": [
+      "FG000006",
+      "FG000106"
+    ],
+    "reason": "Abrasive cut-off wheels are used to prep metal for welding. These popular E6013 and E7018 electrodes are the perfect companion for your fabrication work."
+  },
+  "FG000548": {
+    "product_name": "AB-CW-UT-04-12-107-D-BK-200",
+    "suggest": [
+      "FG000066",
+      "FG000104"
+    ],
+    "reason": "Abrasive cut-off wheels are used to prep metal for welding. These popular E6013 and E7018 electrodes are the perfect companion for your fabrication work."
+  },
+  "FG000527": {
+    "product_name": "AB-CW-UT-04-12-107-D-BR",
+    "suggest": [
+      "FG000046",
+      "FG000106"
+    ],
+    "reason": "Abrasive cut-off wheels are used to prep metal for welding. These popular E6013 and E7018 electrodes are the perfect companion for your fabrication work."
+  },
+  "FG000515": {
+    "product_name": "AB-CW-UT-04-12-107-D-BR-200",
+    "suggest": [
+      "FG000001",
+      "FG000105"
+    ],
+    "reason": "Abrasive cut-off wheels are used to prep metal for welding. These popular E6013 and E7018 electrodes are the perfect companion for your fabrication work."
+  },
+  "FG000528": {
+    "product_name": "AB-CW-UT-04-12-107-D-GR",
+    "suggest": [
+      "FG000011",
+      "FG000102"
+    ],
+    "reason": "Abrasive cut-off wheels are used to prep metal for welding. These popular E6013 and E7018 electrodes are the perfect companion for your fabrication work."
+  },
+  "FG000508": {
+    "product_name": "AB-CW-UT-04-12-107-D-GR-200",
+    "suggest": [
+      "FG000066",
+      "FG000104"
+    ],
+    "reason": "Abrasive cut-off wheels are used to prep metal for welding. These popular E6013 and E7018 electrodes are the perfect companion for your fabrication work."
+  },
+  "FG000615": {
+    "product_name": "AB-CW-UT-05-12-125-D-BR",
+    "suggest": [
+      "FG000066",
+      "FG000105"
+    ],
+    "reason": "Abrasive cut-off wheels are used to prep metal for welding. These popular E6013 and E7018 electrodes are the perfect companion for your fabrication work."
+  },
+  "FG000616": {
+    "product_name": "AB-CW-UT-05-12-125-D-BR-50",
+    "suggest": [
+      "FG000309",
+      "FG000105"
+    ],
+    "reason": "Abrasive cut-off wheels are used to prep metal for welding. These popular E6013 and E7018 electrodes are the perfect companion for your fabrication work."
+  },
+  "FG000878": {
+    "product_name": "AB-CW-UT-05-12-125-D-BK",
+    "suggest": [
+      "FG000011",
+      "FG000102"
+    ],
+    "reason": "Abrasive cut-off wheels are used to prep metal for welding. These popular E6013 and E7018 electrodes are the perfect companion for your fabrication work."
+  },
+  "FG000879": {
+    "product_name": "AB-CW-UT-05-12-125-D-BK-50",
+    "suggest": [
+      "FG000006",
+      "FG000102"
+    ],
+    "reason": "Abrasive cut-off wheels are used to prep metal for welding. These popular E6013 and E7018 electrodes are the perfect companion for your fabrication work."
+  },
+  "FG000560": {
+    "product_name": "AB-CW-UT-05-12-125-D-GR",
+    "suggest": [
+      "FG000001",
+      "FG000106"
+    ],
+    "reason": "Abrasive cut-off wheels are used to prep metal for welding. These popular E6013 and E7018 electrodes are the perfect companion for your fabrication work."
+  },
+  "FG000559": {
+    "product_name": "AB-CW-UT-05-12-125-D-GR-50",
+    "suggest": [
+      "FG000002",
+      "FG000105"
+    ],
+    "reason": "Abrasive cut-off wheels are used to prep metal for welding. These popular E6013 and E7018 electrodes are the perfect companion for your fabrication work."
+  },
+  "FG000523": {
+    "product_name": "AB-CW-UT-14-28-355-S-BK",
+    "suggest": [
+      "FG000062",
+      "FG000105"
+    ],
+    "reason": "Abrasive cut-off wheels are used to prep metal for welding. These popular E6013 and E7018 electrodes are the perfect companion for your fabrication work."
+  },
+  "FG000525": {
+    "product_name": "AB-CW-UT-14-28-355-S-GR",
+    "suggest": [
+      "FG000307",
+      "FG000104"
+    ],
+    "reason": "Abrasive cut-off wheels are used to prep metal for welding. These popular E6013 and E7018 electrodes are the perfect companion for your fabrication work."
+  },
+  "FG000529": {
+    "product_name": "AB-CW-UT-14-32-355-D-BR",
+    "suggest": [
+      "FG000008",
+      "FG000102"
+    ],
+    "reason": "Abrasive cut-off wheels are used to prep metal for welding. These popular E6013 and E7018 electrodes are the perfect companion for your fabrication work."
+  },
+  "FG000530": {
+    "product_name": "AB-CW-UT-14-32-355-D-GR",
+    "suggest": [
+      "FG000006",
+      "FG000102"
+    ],
+    "reason": "Abrasive cut-off wheels are used to prep metal for welding. These popular E6013 and E7018 electrodes are the perfect companion for your fabrication work."
+  },
+  "FG001780": {
+    "product_name": "AB-FD-04-16-100-120",
+    "suggest": [
+      "FG000616"
+    ],
+    "reason": "Cutting and grinding wheels are universally used alongside specialty welding electrodes for surface preparation."
+  },
+  "FG001778": {
+    "product_name": "AB-FD-04-16-100-60",
+    "suggest": [
+      "FG000525"
+    ],
+    "reason": "Cutting and grinding wheels are universally used alongside specialty welding electrodes for surface preparation."
+  },
+  "FG001779": {
+    "product_name": "AB-FD-04-16-100-80",
+    "suggest": [
+      "FG000525"
+    ],
+    "reason": "Cutting and grinding wheels are universally used alongside specialty welding electrodes for surface preparation."
+  },
+  "FG002127": {
+    "product_name": "AB-FD-04-16-100-36",
+    "suggest": [
+      "FG000523"
+    ],
+    "reason": "Cutting and grinding wheels are universally used alongside specialty welding electrodes for surface preparation."
+  },
+  "FG000397": {
+    "product_name": "BINDING WIRE-25 KG",
+    "suggest": [
+      "FG000523"
+    ],
+    "reason": "Cutting and grinding wheels are universally used alongside specialty welding electrodes for surface preparation."
+  },
+  "FG000463": {
+    "product_name": "CCMS 1.60X1000-25KG-HFR",
+    "suggest": [
+      "FG000548"
+    ],
+    "reason": "Cutting and grinding wheels are universally used alongside specialty welding electrodes for surface preparation."
+  },
+  "FG000092": {
+    "product_name": "CCMS 1.60X805-20KG",
+    "suggest": [
+      "FG000879"
+    ],
+    "reason": "Cutting and grinding wheels are universally used alongside specialty welding electrodes for surface preparation."
+  },
+  "FG000603": {
+    "product_name": "MIG-0.8-12.5KG-L-DIN-270",
+    "suggest": [
+      "FG000530"
+    ],
+    "reason": "Cutting and grinding wheels are universally used alongside specialty welding electrodes for surface preparation."
+  },
+  "FG000330": {
+    "product_name": "MIG-0.8-12.5KG-L-DIN-300",
+    "suggest": [
+      "FG000526"
+    ],
+    "reason": "Cutting and grinding wheels are universally used alongside specialty welding electrodes for surface preparation."
+  },
+  "FG000415": {
+    "product_name": "MIG-0.8-15KG-L-DIN-270",
+    "suggest": [
+      "FG000615"
+    ],
+    "reason": "Cutting and grinding wheels are universally used alongside specialty welding electrodes for surface preparation."
+  },
+  "FG000069": {
+    "product_name": "MIG-0.8-15KG-L-DIN-300",
+    "suggest": [
+      "FG000530"
+    ],
+    "reason": "Cutting and grinding wheels are universally used alongside specialty welding electrodes for surface preparation."
+  },
+  "FG000843": {
+    "product_name": "MIG-1.00-15KG-L-DIN-270",
+    "suggest": [
+      "FG000529"
+    ],
+    "reason": "Cutting and grinding wheels are universally used alongside specialty welding electrodes for surface preparation."
+  },
+  "FG000742": {
+    "product_name": "MIG-1.00-15KG-L-DIN-300",
+    "suggest": [
+      "FG000615"
+    ],
+    "reason": "Cutting and grinding wheels are universally used alongside specialty welding electrodes for surface preparation."
+  },
+  "FG000602": {
+    "product_name": "MIG-1.2-15KG-L-DIN-270",
+    "suggest": [
+      "FG000523"
+    ],
+    "reason": "Cutting and grinding wheels are universally used alongside specialty welding electrodes for surface preparation."
+  },
+  "FG000618": {
+    "product_name": "MIG-1.2-15KG-L-DIN-270-WT",
+    "suggest": [
+      "FG000528"
+    ],
+    "reason": "Cutting and grinding wheels are universally used alongside specialty welding electrodes for surface preparation."
+  },
+  "FG000082": {
+    "product_name": "MIG-1.2-15KG-L-DIN-300",
+    "suggest": [
+      "FG000560"
+    ],
+    "reason": "Cutting and grinding wheels are universally used alongside specialty welding electrodes for surface preparation."
+  },
+  "FG000669": {
+    "product_name": "MIG-1.60-15KG-L-DIN-300",
+    "suggest": [
+      "FG000878"
+    ],
+    "reason": "Cutting and grinding wheels are universally used alongside specialty welding electrodes for surface preparation."
+  },
+  "FG000462": {
+    "product_name": "MS 2.00X1000-25KG-HFR",
+    "suggest": [
+      "FG000529"
+    ],
+    "reason": "Cutting and grinding wheels are universally used alongside specialty welding electrodes for surface preparation."
+  },
+  "FG000484": {
+    "product_name": "MS 2.00X1315-25KG-HFR",
+    "suggest": [
+      "FG000879"
+    ],
+    "reason": "Cutting and grinding wheels are universally used alongside specialty welding electrodes for surface preparation."
+  },
+  "FG000485": {
+    "product_name": "MS 2.00X1320-25KG-HFR",
+    "suggest": [
+      "FG000615"
+    ],
+    "reason": "Cutting and grinding wheels are universally used alongside specialty welding electrodes for surface preparation."
+  },
+  "FG000098": {
+    "product_name": "MS 2.50X1000-25KG",
+    "suggest": [
+      "FG000615"
+    ],
+    "reason": "Cutting and grinding wheels are universally used alongside specialty welding electrodes for surface preparation."
+  },
+  "FG000099": {
+    "product_name": "MS 3.15X1000-25KG",
+    "suggest": [
+      "FG000526"
+    ],
+    "reason": "Cutting and grinding wheels are universally used alongside specialty welding electrodes for surface preparation."
+  },
+  "FG000100": {
+    "product_name": "MS 4.00X1000-25KG",
+    "suggest": [
+      "FG000525"
+    ],
+    "reason": "Cutting and grinding wheels are universally used alongside specialty welding electrodes for surface preparation."
+  },
+  "FG000613": {
+    "product_name": "PR-EP-SB-0.5LTR-BK-SP",
+    "suggest": [
+      "FG000523"
+    ],
+    "reason": "Cutting and grinding wheels are universally used alongside specialty welding electrodes for surface preparation."
+  },
+  "FG000564": {
+    "product_name": "PR-EP-SB-0.5LTR-GY-SP",
+    "suggest": [
+      "FG000526"
+    ],
+    "reason": "Cutting and grinding wheels are universally used alongside specialty welding electrodes for surface preparation."
+  },
+  "FG000611": {
+    "product_name": "PR-EP-SB-1LTR-BK-SP",
+    "suggest": [
+      "FG000548"
+    ],
+    "reason": "Cutting and grinding wheels are universally used alongside specialty welding electrodes for surface preparation."
+  },
+  "FG000544": {
+    "product_name": "PR-EP-SB-1LTR-GY-SP",
+    "suggest": [
+      "FG000878"
+    ],
+    "reason": "Cutting and grinding wheels are universally used alongside specialty welding electrodes for surface preparation."
+  },
+  "FG000629": {
+    "product_name": "PR-EP-SB-20LTR-BK-SP",
+    "suggest": [
+      "FG000548"
+    ],
+    "reason": "Cutting and grinding wheels are universally used alongside specialty welding electrodes for surface preparation."
+  },
+  "FG000561": {
+    "product_name": "PR-EP-SB-20LTR-GY-SP",
+    "suggest": [
+      "FG000616"
+    ],
+    "reason": "Cutting and grinding wheels are universally used alongside specialty welding electrodes for surface preparation."
+  },
+  "FG000621": {
+    "product_name": "PR-EP-SB-4LTR-BK-SP",
+    "suggest": [
+      "FG000529"
+    ],
+    "reason": "Cutting and grinding wheels are universally used alongside specialty welding electrodes for surface preparation."
+  },
+  "FG000570": {
+    "product_name": "PR-EP-SB-4LTR-GY-SP",
+    "suggest": [
+      "FG000526"
+    ],
+    "reason": "Cutting and grinding wheels are universally used alongside specialty welding electrodes for surface preparation."
+  },
+  "FG000622": {
+    "product_name": "PR-RO-CC-0.5LTR",
+    "suggest": [
+      "FG000527"
+    ],
+    "reason": "Cutting and grinding wheels are universally used alongside specialty welding electrodes for surface preparation."
+  },
+  "FG000589": {
+    "product_name": "PR-RO-CC-1LTR",
+    "suggest": [
+      "FG000615"
+    ],
+    "reason": "Cutting and grinding wheels are universally used alongside specialty welding electrodes for surface preparation."
+  },
+  "FG000584": {
+    "product_name": "PR-RO-CC-20LTR",
+    "suggest": [
+      "FG000559"
+    ],
+    "reason": "Cutting and grinding wheels are universally used alongside specialty welding electrodes for surface preparation."
+  },
+  "FG000590": {
+    "product_name": "PR-RO-CC-4LTR",
+    "suggest": [
+      "FG000515"
+    ],
+    "reason": "Cutting and grinding wheels are universally used alongside specialty welding electrodes for surface preparation."
+  },
+  "FG000626": {
+    "product_name": "PR-ZC-CC-0.5LTR",
+    "suggest": [
+      "FG000529"
+    ],
+    "reason": "Cutting and grinding wheels are universally used alongside specialty welding electrodes for surface preparation."
+  },
+  "FG000594": {
+    "product_name": "PR-ZC-CC-1LTR",
+    "suggest": [
+      "FG000523"
+    ],
+    "reason": "Cutting and grinding wheels are universally used alongside specialty welding electrodes for surface preparation."
+  },
+  "FG000593": {
+    "product_name": "PR-ZC-CC-20LTR",
+    "suggest": [
+      "FG000530"
+    ],
+    "reason": "Cutting and grinding wheels are universally used alongside specialty welding electrodes for surface preparation."
+  },
+  "FG000592": {
+    "product_name": "PR-ZC-CC-4LTR",
+    "suggest": [
+      "FG000548"
+    ],
+    "reason": "Cutting and grinding wheels are universally used alongside specialty welding electrodes for surface preparation."
+  },
+  "FG000628": {
+    "product_name": "PR-ZC-SB-0.5LTR",
+    "suggest": [
+      "FG000879"
+    ],
+    "reason": "Cutting and grinding wheels are universally used alongside specialty welding electrodes for surface preparation."
+  },
+  "FG000505": {
+    "product_name": "PR-ZC-SB-1LTR",
+    "suggest": [
+      "FG000523"
+    ],
+    "reason": "Cutting and grinding wheels are universally used alongside specialty welding electrodes for surface preparation."
+  },
+  "FG000591": {
+    "product_name": "PR-ZC-SB-20LTR",
+    "suggest": [
+      "FG000878"
+    ],
+    "reason": "Cutting and grinding wheels are universally used alongside specialty welding electrodes for surface preparation."
+  },
+  "FG000506": {
+    "product_name": "PR-ZC-SB-4LTR",
+    "suggest": [
+      "FG000560"
+    ],
+    "reason": "Cutting and grinding wheels are universally used alongside specialty welding electrodes for surface preparation."
+  },
+  "FG000660": {
+    "product_name": "SP-SG-SB-GR-BL-30NO",
+    "suggest": [
+      "FG000560"
+    ],
+    "reason": "Cutting and grinding wheels are universally used alongside specialty welding electrodes for surface preparation."
+  },
+  "FG000637": {
+    "product_name": "SP-SG-SB-GR-BL-60NO",
+    "suggest": [
+      "FG000529"
+    ],
+    "reason": "Cutting and grinding wheels are universally used alongside specialty welding electrodes for surface preparation."
+  },
+  "FG000661": {
+    "product_name": "SP-SG-SB-WH-BL-30NO",
+    "suggest": [
+      "FG000548"
+    ],
+    "reason": "Cutting and grinding wheels are universally used alongside specialty welding electrodes for surface preparation."
+  },
+  "FG000565": {
+    "product_name": "TP-TR-GP-0.5 LTR",
+    "suggest": [
+      "FG000525"
+    ],
+    "reason": "Cutting and grinding wheels are universally used alongside specialty welding electrodes for surface preparation."
+  },
+  "FG000576": {
+    "product_name": "TP-TR-GP-0.8 LTR",
+    "suggest": [
+      "FG000530"
+    ],
+    "reason": "Cutting and grinding wheels are universally used alongside specialty welding electrodes for surface preparation."
+  },
+  "FG000566": {
+    "product_name": "TP-TR-GP-1 LTR",
+    "suggest": [
+      "FG000526"
+    ],
+    "reason": "Cutting and grinding wheels are universally used alongside specialty welding electrodes for surface preparation."
+  },
+  "FG000569": {
+    "product_name": "TP-TR-GP-20 LTR",
+    "suggest": [
+      "FG000548"
+    ],
+    "reason": "Cutting and grinding wheels are universally used alongside specialty welding electrodes for surface preparation."
+  },
+  "FG000567": {
+    "product_name": "TP-TR-GP-3 LTR",
+    "suggest": [
+      "FG000515"
+    ],
+    "reason": "Cutting and grinding wheels are universally used alongside specialty welding electrodes for surface preparation."
+  },
+  "FG000568": {
+    "product_name": "TP-TR-GP-5 LTR",
+    "suggest": [
+      "FG000616"
+    ],
+    "reason": "Cutting and grinding wheels are universally used alongside specialty welding electrodes for surface preparation."
+  },
+  "FG001825": {
+    "product_name": "TP-TR-GP-210LTR",
+    "suggest": [
+      "FG000879"
+    ],
+    "reason": "Cutting and grinding wheels are universally used alongside specialty welding electrodes for surface preparation."
+  },
+  "FG000545": {
+    "product_name": "TP-TR-NC-0.5 LTR",
+    "suggest": [
+      "FG000529"
+    ],
+    "reason": "Cutting and grinding wheels are universally used alongside specialty welding electrodes for surface preparation."
+  },
+  "FG000549": {
+    "product_name": "TP-TR-NC-1.0LTR",
+    "suggest": [
+      "FG000530"
+    ],
+    "reason": "Cutting and grinding wheels are universally used alongside specialty welding electrodes for surface preparation."
+  },
+  "FG000547": {
+    "product_name": "TP-TR-NC-20.0LTR",
+    "suggest": [
+      "FG000526"
+    ],
+    "reason": "Cutting and grinding wheels are universally used alongside specialty welding electrodes for surface preparation."
+  },
+  "FG000571": {
+    "product_name": "TP-TR-NC-3.0LTR",
+    "suggest": [
+      "FG000616"
+    ],
+    "reason": "Cutting and grinding wheels are universally used alongside specialty welding electrodes for surface preparation."
+  },
+  "FG000546": {
+    "product_name": "TP-TR-NC-5.0LTR",
+    "suggest": [
+      "FG000548"
+    ],
+    "reason": "Cutting and grinding wheels are universally used alongside specialty welding electrodes for surface preparation."
+  },
+  "FG001818": {
+    "product_name": "TP-TR-NC-210LTR",
+    "suggest": [
+      "FG000559"
+    ],
+    "reason": "Cutting and grinding wheels are universally used alongside specialty welding electrodes for surface preparation."
+  },
+  "FG001777": {
+    "product_name": "AB-WCB-04-110-03",
+    "suggest": [
+      "FG000548"
+    ],
+    "reason": "Cutting and grinding wheels are universally used alongside specialty welding electrodes for surface preparation."
+  },
+  "FG001827": {
+    "product_name": "AB-WCB-05-110-03",
+    "suggest": [
+      "FG000529"
+    ],
+    "reason": "Cutting and grinding wheels are universally used alongside specialty welding electrodes for surface preparation."
+  },
+  "FG002157": {
+    "product_name": "SB-MT-050-20M-135",
+    "suggest": [
+      "FG000878"
+    ],
+    "reason": "Cutting and grinding wheels are universally used alongside specialty welding electrodes for surface preparation."
+  },
+  "FG002158": {
+    "product_name": "SB-MT-075-20M-135",
+    "suggest": [
+      "FG000527"
+    ],
+    "reason": "Cutting and grinding wheels are universally used alongside specialty welding electrodes for surface preparation."
+  },
+  "FG002159": {
+    "product_name": "SB-MT-100-20M-135",
+    "suggest": [
+      "FG000525"
+    ],
+    "reason": "Cutting and grinding wheels are universally used alongside specialty welding electrodes for surface preparation."
+  },
+  "FG002160": {
+    "product_name": "SB-MT-150-20M-135",
+    "suggest": [
+      "FG000529"
+    ],
+    "reason": "Cutting and grinding wheels are universally used alongside specialty welding electrodes for surface preparation."
+  },
+  "FG002161": {
+    "product_name": "SB-MT-200-20M-135",
+    "suggest": [
+      "FG000529"
+    ],
+    "reason": "Cutting and grinding wheels are universally used alongside specialty welding electrodes for surface preparation."
+  },
+  "FG002162": {
+    "product_name": "SB-MT-300-20M-135",
+    "suggest": [
+      "FG000515"
+    ],
+    "reason": "Cutting and grinding wheels are universally used alongside specialty welding electrodes for surface preparation."
+  }
+}

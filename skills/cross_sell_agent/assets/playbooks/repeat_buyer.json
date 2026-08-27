@@ -1,0 +1,11 @@
+{
+  "name": "Repeat buyer flow",
+  "trigger": { "segment": "repeat", "min_orders": 2 },
+  "sentiment_gate": true,
+  "steps": [
+    { "step": 1, "action": "check_sentiment", "on_negative": "send_empathy_template" },
+    { "step": 2, "action": "cross_sell_agent", "input": "last_purchased_product" },
+    { "step": 3, "action": "offer_agent", "filter": "loyalty_offers_only" },
+    { "step": 4, "action": "send_message", "template": "repeat_buyer_offer" }
+  ]
+}

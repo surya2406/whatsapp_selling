@@ -1,0 +1,20 @@
+{
+  "new": {
+    "max_orders": 1,
+    "label": "New Customer"
+  },
+  "repeat": {
+    "min_orders": 2,
+    "max_orders": 9,
+    "label": "Repeat Buyer"
+  },
+  "high_value": {
+    "min_orders": 10,
+    "or_min_spend": 5000,
+    "label": "VIP"
+  },
+  "dormant": {
+    "inactive_days": 60,
+    "label": "Dormant"
+  }
+}

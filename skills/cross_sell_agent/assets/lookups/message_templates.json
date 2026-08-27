@@ -1,0 +1,12 @@
+{
+  "new_customer_welcome": "Hi {name}! 👋 Welcome to our store! Since you tried {product_name}, you might also love {suggestion}. Use code {offer_code} for {discount}% off your next order!",
+  "repeat_buyer_offer": "Hi {name}! Great to hear from you 😊 Customers who bought {product_name} also love {suggestion}. Here's a special deal just for you: use {offer_code} for {discount}% off!",
+  "vip_personalized": "Hi {name}! 🌟 As one of our valued customers, here's something exclusive for you: {suggestion} — use code {offer_code} for {discount}% off. You deserve the best!",
+  "winback_we_miss_you": "Hi {name}, we've missed you! 🥺 It's been a while since your last order. Here's {discount}% off to welcome you back — use code {offer_code}. We'd love to see you again!",
+  "post_purchase_followup": "Hi {name}! 😊 Hope you're loving your {product_name}. You might also like {suggestion} — it pairs perfectly with what you bought. Check it out!",
+  "send_empathy_template": "Hi {name}, thank you for reaching out. We're here to help — what can we do for you today? 🙏",
+  "cross_sell_only": "Hi {name}! Based on your recent purchase of {product_name}, we think you'd love {suggestion}. It's a perfect match! 🛍️",
+  "upsell_only": "Hi {name}! Ready to level up your experience? Customers who started with {product_name} often upgrade to {suggestion} — and they love it! Try it out 🚀",
+  "route_to_human": "[HUMAN_AGENT_NEEDED] VIP customer with negative sentiment — {customer_id}",
+  "general_reply": "Hi {name}! Thanks for reaching out 😊 How can we help you today?"
+}

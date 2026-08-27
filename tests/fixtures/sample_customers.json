@@ -1,0 +1,46 @@
+[
+  {
+    "id": "+919876543210",
+    "phone": "+919876543210",
+    "name": "Priya",
+    "segment": "repeat",
+    "rfm_recency": 7,
+    "rfm_frequency": 4,
+    "rfm_monetary": 1500.0,
+    "churn_risk": "low",
+    "last_purchased_product": "PROD_001"
+  },
+  {
+    "id": "+919876543211",
+    "phone": "+919876543211",
+    "name": "Rahul",
+    "segment": "new",
+    "rfm_recency": 1,
+    "rfm_frequency": 1,
+    "rfm_monetary": 299.0,
+    "churn_risk": "low",
+    "last_purchased_product": "PROD_001"
+  },
+  {
+    "id": "+919876543213",
+    "phone": "+919876543213",
+    "name": "Kumar",
+    "segment": "high_value",
+    "rfm_recency": 3,
+    "rfm_frequency": 15,
+    "rfm_monetary": 8500.0,
+    "churn_risk": "low",
+    "last_purchased_product": "PROD_200"
+  },
+  {
+    "id": "+919876543214",
+    "phone": "+919876543214",
+    "name": "Meena",
+    "segment": "dormant",
+    "rfm_recency": 90,
+    "rfm_frequency": 3,
+    "rfm_monetary": 900.0,
+    "churn_risk": "high",
+    "last_purchased_product": "PROD_045"
+  }
+]

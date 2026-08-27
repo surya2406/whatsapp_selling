@@ -1,0 +1,758 @@
+{
+  "FG000008": {
+    "name": "6013-SB-10-WOT",
+    "category": "Welding Electrodes-E6013",
+    "price": 2700.0,
+    "tier": "standard",
+    "description": "3.15 X 350MM (WOT)"
+  },
+  "FG000307": {
+    "name": "6013-SB-10-WT",
+    "category": "Welding Electrodes-E6013",
+    "price": 2740.0,
+    "tier": "standard",
+    "description": "3.15 X 350MM (WT)"
+  },
+  "FG000003": {
+    "name": "6013-SB-12-WOT",
+    "category": "Welding Electrodes-E6013",
+    "price": 2980.0,
+    "tier": "standard",
+    "description": "2.50 X 350MM (WOT)"
+  },
+  "FG000310": {
+    "name": "6013-SB-12-WT",
+    "category": "Welding Electrodes-E6013",
+    "price": 3020.0,
+    "tier": "standard",
+    "description": "2.50 X 350MM (WT)"
+  },
+  "FG000002": {
+    "name": "6013-SB-14-WOT",
+    "category": "Welding Electrodes-E6013",
+    "price": 3260.0,
+    "tier": "standard",
+    "description": "2.00 X 300MM (WOT)"
+  },
+  "FG000001": {
+    "name": "6013-SB-16-WOT",
+    "category": "Welding Electrodes-E6013",
+    "price": 3260.0,
+    "tier": "standard",
+    "description": "1.60 X 250MM (WOT)"
+  },
+  "FG000006": {
+    "name": "6013-SB-6-WOT",
+    "category": "Welding Electrodes-E6013",
+    "price": 3380.0,
+    "tier": "standard",
+    "description": "5.00 X 450MM (WOT)"
+  },
+  "FG000011": {
+    "name": "6013-SB-8-WOT",
+    "category": "Welding Electrodes-E6013",
+    "price": 3260.0,
+    "tier": "standard",
+    "description": "4.00 X 450MM (WOT)"
+  },
+  "FG000309": {
+    "name": "6013-SB-8-WT",
+    "category": "Welding Electrodes-E6013",
+    "price": 3300.0,
+    "tier": "standard",
+    "description": "4.00 X 450MM (WT)"
+  },
+  "FG000050": {
+    "name": "6013SS-10-WOT",
+    "category": "Welding Electrodes-E6013SS",
+    "price": 2700.0,
+    "tier": "standard",
+    "description": "3.15 X 350MM (WOT)"
+  },
+  "FG000046": {
+    "name": "6013SS-12-WOT",
+    "category": "Welding Electrodes-E6013SS",
+    "price": 2980.0,
+    "tier": "standard",
+    "description": "2.50 X 350MM (WOT)"
+  },
+  "FG000066": {
+    "name": "6013SS-6-WOT",
+    "category": "Welding Electrodes-E6013SS",
+    "price": 3380.0,
+    "tier": "standard",
+    "description": "5.00 X 450MM (WOT)"
+  },
+  "FG000062": {
+    "name": "6013SS-8-WOT",
+    "category": "Welding Electrodes-E6013SS",
+    "price": 3260.0,
+    "tier": "standard",
+    "description": "4.00 X 450MM (WOT)"
+  },
+  "FG000104": {
+    "name": "7018-10-450",
+    "category": "Welding Electrodes-E7018",
+    "price": 2880.0,
+    "tier": "standard",
+    "description": "3.15 X 450MM"
+  },
+  "FG000102": {
+    "name": "7018-12",
+    "category": "Welding Electrodes-E7018",
+    "price": 2880.0,
+    "tier": "standard",
+    "description": "2.50 X 350MM"
+  },
+  "FG000106": {
+    "name": "7018-6",
+    "category": "Welding Electrodes-E7018",
+    "price": 2880.0,
+    "tier": "standard",
+    "description": "5.00 X 450MM"
+  },
+  "FG000105": {
+    "name": "7018-8",
+    "category": "Welding Electrodes-E7018",
+    "price": 2880.0,
+    "tier": "standard",
+    "description": "4.00 X 450MM"
+  },
+  "FG000034": {
+    "name": "308L-10",
+    "category": "Welding Electrodes-E308L",
+    "price": 3760.0,
+    "tier": "standard",
+    "description": "3.15 X 350MM"
+  },
+  "FG000033": {
+    "name": "308L-12",
+    "category": "Welding Electrodes-E308L",
+    "price": 3760.0,
+    "tier": "standard",
+    "description": "2.50 X 350MM"
+  },
+  "FG000032": {
+    "name": "308L-14",
+    "category": "Welding Electrodes-E308L",
+    "price": 4140.0,
+    "tier": "standard",
+    "description": "2.00 X 300MM"
+  },
+  "FG000052": {
+    "name": "309L-10",
+    "category": "Welding Electrodes-E309L",
+    "price": 5500.0,
+    "tier": "standard",
+    "description": "3.15 X 350MM"
+  },
+  "FG000051": {
+    "name": "309L-12",
+    "category": "Welding Electrodes-E309L",
+    "price": 5500.0,
+    "tier": "standard",
+    "description": "2.50 X 350MM"
+  },
+  "FG000154": {
+    "name": "CINM-10-20KG",
+    "category": "Welding Electrodes-CINM",
+    "price": 2980.0,
+    "tier": "standard",
+    "description": "3.15 X 350MM"
+  },
+  "FG000159": {
+    "name": "CI FE NI-10-PKT",
+    "category": "Welding Electrodes-CIFN",
+    "price": 2340.0,
+    "tier": "standard",
+    "description": "3.15 X 350MM"
+  },
+  "FG000175": {
+    "name": "CUT ROD-6",
+    "category": "Cutting Electrodes",
+    "price": 2200.0,
+    "tier": "standard",
+    "description": "5.00 X 450MM"
+  },
+  "FG000526": {
+    "name": "AB-CW-UT-04-12-107-D-BK",
+    "category": "4\" Cut-Off Wheels-Double Net",
+    "price": 5490.0,
+    "tier": "standard",
+    "description": "107 X 1.2X 16MM-UT-CW-DN-BLACK"
+  },
+  "FG000548": {
+    "name": "AB-CW-UT-04-12-107-D-BK-200",
+    "category": "4\" Cut-Off Wheels-Double Net",
+    "price": 1830.0,
+    "tier": "standard",
+    "description": "107 X 1.2X 16MM-UT-CW-DN-BLACK-200"
+  },
+  "FG000527": {
+    "name": "AB-CW-UT-04-12-107-D-BR",
+    "category": "4\" Cut-Off Wheels-Double Net",
+    "price": 5490.0,
+    "tier": "standard",
+    "description": "107 X 1.2X 16MM-UT-CW-DN-BROWN"
+  },
+  "FG000515": {
+    "name": "AB-CW-UT-04-12-107-D-BR-200",
+    "category": "4\" Cut-Off Wheels-Double Net",
+    "price": 1830.0,
+    "tier": "standard",
+    "description": "107 X 1.2X 16MM-UT-CW-DN-BROWN-200"
+  },
+  "FG000528": {
+    "name": "AB-CW-UT-04-12-107-D-GR",
+    "category": "4\" Cut-Off Wheels-Double Net",
+    "price": 5490.0,
+    "tier": "standard",
+    "description": "107 X 1.2X 16MM-UT-CW-DN-GREEN"
+  },
+  "FG000508": {
+    "name": "AB-CW-UT-04-12-107-D-GR-200",
+    "category": "4\" Cut-Off Wheels-Double Net",
+    "price": 1830.0,
+    "tier": "standard",
+    "description": "107 X 1.2X 16MM-UT-CW-DN-GREEN-200"
+  },
+  "FG000615": {
+    "name": "AB-CW-UT-05-12-125-D-BR",
+    "category": "5\" Cut-Off Wheels-Double Net",
+    "price": 7900.0,
+    "tier": "standard",
+    "description": "125 X 1.2 X 22.23 MM-UT-CW-DN-BROWN"
+  },
+  "FG000616": {
+    "name": "AB-CW-UT-05-12-125-D-BR-50",
+    "category": "5\" Cut-Off Wheels-Double Net",
+    "price": 988.0,
+    "tier": "standard",
+    "description": "125 X 1.2 X 22.23 MM-UT-CW-DN-BROWN-50"
+  },
+  "FG000878": {
+    "name": "AB-CW-UT-05-12-125-D-BK",
+    "category": "5\" Cut-Off Wheels-Double Net",
+    "price": 7900.0,
+    "tier": "standard",
+    "description": "125 X 1.2 X 22.23 MM-UT-CW-DN-BLACK"
+  },
+  "FG000879": {
+    "name": "AB-CW-UT-05-12-125-D-BK-50",
+    "category": "5\" Cut-Off Wheels-Double Net",
+    "price": 988.0,
+    "tier": "standard",
+    "description": "125 X 1.2 X 22.23 MM-UT-CW-DN-BLACK-50"
+  },
+  "FG000560": {
+    "name": "AB-CW-UT-05-12-125-D-GR",
+    "category": "5\" Cut-Off Wheels-Double Net",
+    "price": 7900.0,
+    "tier": "standard",
+    "description": "125 X 1.2 X 22.23 MM-UT-CW-DN-GREEN"
+  },
+  "FG000559": {
+    "name": "AB-CW-UT-05-12-125-D-GR-50",
+    "category": "5\" Cut-Off Wheels-Double Net",
+    "price": 988.0,
+    "tier": "standard",
+    "description": "125 X 1.2 X 22.23 MM-UT-CW-DN-GREEN-50"
+  },
+  "FG000523": {
+    "name": "AB-CW-UT-14-28-355-S-BK",
+    "category": "14\" Cut-Off Wheels-Single Net",
+    "price": 2800.0,
+    "tier": "standard",
+    "description": "355 X 2.8 X 25.4MM-UT-CW-SN-BLACK"
+  },
+  "FG000525": {
+    "name": "AB-CW-UT-14-28-355-S-GR",
+    "category": "14\" Cut-Off Wheels-Single Net",
+    "price": 2800.0,
+    "tier": "standard",
+    "description": "355 X 2.8 X 25.4MM-UT-CW-SN-GREEN"
+  },
+  "FG000529": {
+    "name": "AB-CW-UT-14-32-355-D-BR",
+    "category": "14\" Cut-Off Wheels-Double Net",
+    "price": 3125.0,
+    "tier": "standard",
+    "description": "355 X 3.2 X 25.4MM-UT-CW-DN-BROWN"
+  },
+  "FG000530": {
+    "name": "AB-CW-UT-14-32-355-D-GR",
+    "category": "14\" Cut-Off Wheels-Double Net",
+    "price": 3125.0,
+    "tier": "standard",
+    "description": "355 X 3.2 X 25.4MM-UT-CW-DN-GREEN"
+  },
+  "FG001780": {
+    "name": "AB-FD-04-16-100-120",
+    "category": "Flap Discs",
+    "price": 490.0,
+    "tier": "standard",
+    "description": "100X16 MM-120 GRIT FLAP DISC"
+  },
+  "FG001778": {
+    "name": "AB-FD-04-16-100-60",
+    "category": "Flap Discs",
+    "price": 490.0,
+    "tier": "standard",
+    "description": "100X16 MM-60 GRIT FLAP DISC"
+  },
+  "FG001779": {
+    "name": "AB-FD-04-16-100-80",
+    "category": "Flap Discs",
+    "price": 490.0,
+    "tier": "standard",
+    "description": "100X16 MM-80 GRIT FLAP DISC"
+  },
+  "FG002127": {
+    "name": "AB-FD-04-16-100-36",
+    "category": "Flap Discs",
+    "price": 490.0,
+    "tier": "standard",
+    "description": "100X16 MM-36 GRIT FLAP DISC"
+  },
+  "FG000397": {
+    "name": "BINDING WIRE-25 KG",
+    "category": "Binding Wires",
+    "price": 2450.0,
+    "tier": "standard",
+    "description": "BINDING WIRE-25 KG"
+  },
+  "FG000463": {
+    "name": "CCMS 1.60X1000-25KG-HFR",
+    "category": "CCMS Filler Wire",
+    "price": 2475.0,
+    "tier": "standard",
+    "description": "CCMS FILLER WIRE 1.60 X 1000 MM-25 KG"
+  },
+  "FG000092": {
+    "name": "CCMS 1.60X805-20KG",
+    "category": "CCMS Filler Wire",
+    "price": 1980.0,
+    "tier": "standard",
+    "description": "CCMS FILLER WIRE 1.60 X 805 MM-20 KG"
+  },
+  "FG000603": {
+    "name": "MIG-0.8-12.5KG-L-DIN-270",
+    "category": "MIG Wire-ER70S-6",
+    "price": 1588.0,
+    "tier": "standard",
+    "description": "0.8 MM L-12.5 KG SPOOL-DIN-270"
+  },
+  "FG000330": {
+    "name": "MIG-0.8-12.5KG-L-DIN-300",
+    "category": "MIG Wire-ER70S-6",
+    "price": 1588.0,
+    "tier": "standard",
+    "description": "0.8 MM L-12.5 KG-SPOOL-DIN-300"
+  },
+  "FG000415": {
+    "name": "MIG-0.8-15KG-L-DIN-270",
+    "category": "MIG Wire-ER70S-6",
+    "price": 1830.0,
+    "tier": "standard",
+    "description": "0.8 MM L-15 KG SPOOL-DIN-270"
+  },
+  "FG000069": {
+    "name": "MIG-0.8-15KG-L-DIN-300",
+    "category": "MIG Wire-ER70S-6",
+    "price": 1830.0,
+    "tier": "standard",
+    "description": "0.8 MM L-15 KG SPOOL-DIN-300"
+  },
+  "FG000843": {
+    "name": "MIG-1.00-15KG-L-DIN-270",
+    "category": "MIG Wire-ER70S-6",
+    "price": 1815.0,
+    "tier": "standard",
+    "description": "1.00 MM L-15 KG SPOOL-DIN-270"
+  },
+  "FG000742": {
+    "name": "MIG-1.00-15KG-L-DIN-300",
+    "category": "MIG Wire-ER70S-6",
+    "price": 1815.0,
+    "tier": "standard",
+    "description": "1.00 MM L-15 KG SPOOL-DIN-300"
+  },
+  "FG000602": {
+    "name": "MIG-1.2-15KG-L-DIN-270",
+    "category": "MIG Wire-ER70S-6",
+    "price": 1800.0,
+    "tier": "standard",
+    "description": "1.20 MM L-15 KG SPOOL-DIN-270"
+  },
+  "FG000618": {
+    "name": "MIG-1.2-15KG-L-DIN-270-WT",
+    "category": "MIG Wire-ER70S-6",
+    "price": 1800.0,
+    "tier": "standard",
+    "description": "1.20 MM L-15 KG SPOOL-DIN-270-WT"
+  },
+  "FG000082": {
+    "name": "MIG-1.2-15KG-L-DIN-300",
+    "category": "MIG Wire-ER70S-6",
+    "price": 1800.0,
+    "tier": "standard",
+    "description": "1.20 MM L-15 KG SPOOL-DIN-300"
+  },
+  "FG000669": {
+    "name": "MIG-1.60-15KG-L-DIN-300",
+    "category": "MIG Wire-ER70S-6",
+    "price": 1800.0,
+    "tier": "standard",
+    "description": "1.60 MM L-15 KG SPOOL-DIN-300"
+  },
+  "FG000462": {
+    "name": "MS 2.00X1000-25KG-HFR",
+    "category": "MS Filler wire",
+    "price": 2225.0,
+    "tier": "standard",
+    "description": "MS FILLER WIRE 2.00 X 1000 MM-25 KG"
+  },
+  "FG000484": {
+    "name": "MS 2.00X1315-25KG-HFR",
+    "category": "MS Filler wire",
+    "price": 2225.0,
+    "tier": "standard",
+    "description": "MS FILLER WIRE 2.00 X 1315 MM-25 KG"
+  },
+  "FG000485": {
+    "name": "MS 2.00X1320-25KG-HFR",
+    "category": "MS Filler wire",
+    "price": 2225.0,
+    "tier": "standard",
+    "description": "MS FILLER WIRE 2.00 X 1320 MM-25 KG"
+  },
+  "FG000098": {
+    "name": "MS 2.50X1000-25KG",
+    "category": "MS Filler wire",
+    "price": 2225.0,
+    "tier": "standard",
+    "description": "MS FILLER WIRE 2.50 X 1000 MM-25 KG"
+  },
+  "FG000099": {
+    "name": "MS 3.15X1000-25KG",
+    "category": "MS Filler wire",
+    "price": 2225.0,
+    "tier": "standard",
+    "description": "MS FILLER WIRE 3.15 X 1000 MM-25 KG"
+  },
+  "FG000100": {
+    "name": "MS 4.00X1000-25KG",
+    "category": "MS Filler wire",
+    "price": 2225.0,
+    "tier": "standard",
+    "description": "MS FILLER WIRE 4.00 X 1000 MM-25 KG"
+  },
+  "FG000613": {
+    "name": "PR-EP-SB-0.5LTR-BK-SP",
+    "category": "Epoxy Primer-Black",
+    "price": 1320.0,
+    "tier": "standard",
+    "description": "EP-SB-BL-0.5 LTR"
+  },
+  "FG000564": {
+    "name": "PR-EP-SB-0.5LTR-GY-SP",
+    "category": "Epoxy Primer-Grey",
+    "price": 1552.0,
+    "tier": "standard",
+    "description": "EP-SB-GY-0.5 LTR"
+  },
+  "FG000611": {
+    "name": "PR-EP-SB-1LTR-BK-SP",
+    "category": "Epoxy Primer-Black",
+    "price": 1818.0,
+    "tier": "standard",
+    "description": "EP-SB-BL-1.0 LTR"
+  },
+  "FG000544": {
+    "name": "PR-EP-SB-1LTR-GY-SP",
+    "category": "Epoxy Primer-Grey",
+    "price": 2160.0,
+    "tier": "standard",
+    "description": "EP-SB-GY-1.0 LTR"
+  },
+  "FG000629": {
+    "name": "PR-EP-SB-20LTR-BK-SP",
+    "category": "Epoxy Primer-Black",
+    "price": 5100.0,
+    "tier": "standard",
+    "description": "EP-SB-BL-20.0 LTR"
+  },
+  "FG000561": {
+    "name": "PR-EP-SB-20LTR-GY-SP",
+    "category": "Epoxy Primer-Grey",
+    "price": 6250.0,
+    "tier": "standard",
+    "description": "EP-SB-GY-20.0 LTR"
+  },
+  "FG000621": {
+    "name": "PR-EP-SB-4LTR-BK-SP",
+    "category": "Epoxy Primer-Black",
+    "price": 4460.0,
+    "tier": "standard",
+    "description": "EP-SB-BL-4.0 LTR"
+  },
+  "FG000570": {
+    "name": "PR-EP-SB-4LTR-GY-SP",
+    "category": "Epoxy Primer-Grey",
+    "price": 5400.0,
+    "tier": "standard",
+    "description": "EP-SB-GY-4.0 LTR"
+  },
+  "FG000622": {
+    "name": "PR-RO-CC-0.5LTR",
+    "category": "Red Oxide Primer-CLASSY COATS",
+    "price": 608.0,
+    "tier": "standard",
+    "description": "RO-CC-0.5 LTR"
+  },
+  "FG000589": {
+    "name": "PR-RO-CC-1LTR",
+    "category": "Red Oxide Primer-CLASSY COATS",
+    "price": 1416.0,
+    "tier": "standard",
+    "description": "RO-CC-1.0 LTR"
+  },
+  "FG000584": {
+    "name": "PR-RO-CC-20LTR",
+    "category": "Red Oxide Primer-CLASSY COATS",
+    "price": 3200.0,
+    "tier": "standard",
+    "description": "RO-CC-20.0 LTR"
+  },
+  "FG000590": {
+    "name": "PR-RO-CC-4LTR",
+    "category": "Red Oxide Primer-CLASSY COATS",
+    "price": 1680.0,
+    "tier": "standard",
+    "description": "RO-CC-4.0 LTR"
+  },
+  "FG000626": {
+    "name": "PR-ZC-CC-0.5LTR",
+    "category": "Zinc Chromate Primer-CLASSY COATS",
+    "price": 888.0,
+    "tier": "standard",
+    "description": "ZC-CC-0.5 LTR"
+  },
+  "FG000594": {
+    "name": "PR-ZC-CC-1LTR",
+    "category": "Zinc Chromate Primer-CLASSY COATS",
+    "price": 2256.0,
+    "tier": "standard",
+    "description": "ZC-CC-1.0 LTR"
+  },
+  "FG000593": {
+    "name": "PR-ZC-CC-20LTR",
+    "category": "Zinc Chromate Primer-CLASSY COATS",
+    "price": 3180.0,
+    "tier": "standard",
+    "description": "ZC-CC-20.0 LTR"
+  },
+  "FG000592": {
+    "name": "PR-ZC-CC-4LTR",
+    "category": "Zinc Chromate Primer-CLASSY COATS",
+    "price": 2800.0,
+    "tier": "standard",
+    "description": "ZC-CC-4.0 LTR"
+  },
+  "FG000628": {
+    "name": "PR-ZC-SB-0.5LTR",
+    "category": "Zinc Chromate Primer-SUN BOND",
+    "price": 1240.0,
+    "tier": "standard",
+    "description": "ZC-SB-0.5 LTR"
+  },
+  "FG000505": {
+    "name": "PR-ZC-SB-1LTR",
+    "category": "Zinc Chromate Primer-SUN BOND",
+    "price": 1698.0,
+    "tier": "standard",
+    "description": "ZC-SB-1.0 LTR"
+  },
+  "FG000591": {
+    "name": "PR-ZC-SB-20LTR",
+    "category": "Zinc Chromate Primer-SUN BOND",
+    "price": 4700.0,
+    "tier": "standard",
+    "description": "ZC-SB-20.0 LTR"
+  },
+  "FG000506": {
+    "name": "PR-ZC-SB-4LTR",
+    "category": "Zinc Chromate Primer-SUN BOND",
+    "price": 4160.0,
+    "tier": "standard",
+    "description": "ZC-SB-4.0 LTR"
+  },
+  "FG000660": {
+    "name": "SP-SG-SB-GR-BL-30NO",
+    "category": "Safety Googles",
+    "price": 1170.0,
+    "tier": "standard",
+    "description": "SAFETY GOGGLES GREY COLOUR BLUE LOGO 30NOS"
+  },
+  "FG000637": {
+    "name": "SP-SG-SB-GR-BL-60NO",
+    "category": "Safety Googles",
+    "price": 2340.0,
+    "tier": "standard",
+    "description": "SAFETY GOGGLES GREY COLOUR BLUE LOGO 60NOS"
+  },
+  "FG000661": {
+    "name": "SP-SG-SB-WH-BL-30NO",
+    "category": "Safety Googles",
+    "price": 1170.0,
+    "tier": "standard",
+    "description": "SAFETY GOGGLES WHITE COLOUR BLUE LOGO 30NOS"
+  },
+  "FG000565": {
+    "name": "TP-TR-GP-0.5 LTR",
+    "category": "GP ENAMEL THINNER",
+    "price": 1860.0,
+    "tier": "standard",
+    "description": "GP-0.5 LTR"
+  },
+  "FG000576": {
+    "name": "TP-TR-GP-0.8 LTR",
+    "category": "GP ENAMEL THINNER",
+    "price": 4260.0,
+    "tier": "standard",
+    "description": "GP-0.8 LTR"
+  },
+  "FG000566": {
+    "name": "TP-TR-GP-1 LTR",
+    "category": "GP ENAMEL THINNER",
+    "price": 3540.0,
+    "tier": "standard",
+    "description": "GP-1 LTR"
+  },
+  "FG000569": {
+    "name": "TP-TR-GP-20 LTR",
+    "category": "GP ENAMEL THINNER",
+    "price": 3650.0,
+    "tier": "standard",
+    "description": "GP-20 LTR"
+  },
+  "FG000567": {
+    "name": "TP-TR-GP-3 LTR",
+    "category": "GP ENAMEL THINNER",
+    "price": 2152.0,
+    "tier": "standard",
+    "description": "GP-3 LTR"
+  },
+  "FG000568": {
+    "name": "TP-TR-GP-5 LTR",
+    "category": "GP ENAMEL THINNER",
+    "price": 3540.0,
+    "tier": "standard",
+    "description": "GP-5 LTR"
+  },
+  "FG001825": {
+    "name": "TP-TR-GP-210LTR",
+    "category": "GP ENAMEL THINNER",
+    "price": 34500.0,
+    "tier": "standard",
+    "description": "GP-210 LTR"
+  },
+  "FG000545": {
+    "name": "TP-TR-NC-0.5 LTR",
+    "category": "NC Thinner",
+    "price": 1720.0,
+    "tier": "standard",
+    "description": "NC-0.5 LTR"
+  },
+  "FG000549": {
+    "name": "TP-TR-NC-1.0LTR",
+    "category": "NC Thinner",
+    "price": 3080.0,
+    "tier": "standard",
+    "description": "NC-1.0 LTR"
+  },
+  "FG000547": {
+    "name": "TP-TR-NC-20.0LTR",
+    "category": "NC Thinner",
+    "price": 3100.0,
+    "tier": "standard",
+    "description": "NC-20.0 LTR"
+  },
+  "FG000571": {
+    "name": "TP-TR-NC-3.0LTR",
+    "category": "NC Thinner",
+    "price": 1920.0,
+    "tier": "standard",
+    "description": "NC-3.0 LTR"
+  },
+  "FG000546": {
+    "name": "TP-TR-NC-5.0LTR",
+    "category": "NC Thinner",
+    "price": 3020.0,
+    "tier": "standard",
+    "description": "NC-5.0 LTR"
+  },
+  "FG001818": {
+    "name": "TP-TR-NC-210LTR",
+    "category": "NC Thinner",
+    "price": 28200.0,
+    "tier": "standard",
+    "description": "NC-210 LTR"
+  },
+  "FG001777": {
+    "name": "AB-WCB-04-110-03",
+    "category": "Wall Cutting Blade",
+    "price": 898.0,
+    "tier": "standard",
+    "description": "110X3X16.2 MM -10 NOS"
+  },
+  "FG001827": {
+    "name": "AB-WCB-05-110-03",
+    "category": "Wall Cutting Blade",
+    "price": 1060.0,
+    "tier": "standard",
+    "description": "125X3X22.2 MM -10 NOS"
+  },
+  "FG002157": {
+    "name": "SB-MT-050-20M-135",
+    "category": "Masking Tape",
+    "price": 5428.0,
+    "tier": "standard",
+    "description": "0.5X20M-135 MIC MASKING TAPE"
+  },
+  "FG002158": {
+    "name": "SB-MT-075-20M-135",
+    "category": "Masking Tape",
+    "price": 5664.0,
+    "tier": "standard",
+    "description": "0.75X20M-135 MIC MASKING TAPE"
+  },
+  "FG002159": {
+    "name": "SB-MT-100-20M-135",
+    "category": "Masking Tape",
+    "price": 5664.0,
+    "tier": "standard",
+    "description": "1X20M-135 MIC MASKING TAPE"
+  },
+  "FG002160": {
+    "name": "SB-MT-150-20M-135",
+    "category": "Masking Tape",
+    "price": 5900.0,
+    "tier": "standard",
+    "description": "1.5X20M-135 MIC MASKING TAPE"
+  },
+  "FG002161": {
+    "name": "SB-MT-200-20M-135",
+    "category": "Masking Tape",
+    "price": 6136.0,
+    "tier": "standard",
+    "description": "2X20M-135 MIC MASKING TAPE"
+  },
+  "FG002162": {
+    "name": "SB-MT-300-20M-135",
+    "category": "Masking Tape",
+    "price": 6372.0,
+    "tier": "standard",
+    "description": "3X20M-135 MIC MASKING TAPE"
+  }
+}

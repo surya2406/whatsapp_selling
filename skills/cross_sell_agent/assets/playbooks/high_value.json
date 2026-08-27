@@ -1,0 +1,12 @@
+{
+  "name": "VIP customer flow",
+  "trigger": { "segment": "high_value", "min_orders": 10 },
+  "sentiment_gate": true,
+  "steps": [
+    { "step": 1, "action": "check_sentiment", "on_negative": "route_to_human" },
+    { "step": 2, "action": "up_sell_agent" },
+    { "step": 3, "action": "cross_sell_agent" },
+    { "step": 4, "action": "offer_agent", "filter": "vip_offers_only" },
+    { "step": 5, "action": "send_message", "template": "vip_personalized" }
+  ]
+}
