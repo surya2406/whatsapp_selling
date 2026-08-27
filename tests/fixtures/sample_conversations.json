@@ -1,35 +1,54 @@
 [
   {
     "customer_id": "+919876543210",
-    "customer_name": "Priya",
+    "customer_name": "Murugan",
     "messages": [
-      "Hi, I just received my face wash",
-      "It's really nice, love it!",
-      "Do you have any moisturizer that goes well with it?"
+      "anna 6013 3mm 10 box vendum",
+      "urgent na, site work iruku"
     ],
-    "expected_intent": "enquiry",
-    "expected_sentiment": "positive",
+    "expected_intent": "purchase_signal",
+    "expected_sentiment": "neutral",
     "expected_purchase_signal": true
   },
   {
     "customer_id": "+919876543211",
-    "customer_name": "Rahul",
+    "customer_name": "Selvam",
     "messages": [
-      "The product I received last week is damaged",
-      "Very disappointed with the quality",
-      "I want a refund"
+      "What is the price of 308L stainless rod?",
+      "I need 2.5mm size, around 5 boxes"
+    ],
+    "expected_intent": "enquiry",
+    "expected_sentiment": "neutral",
+    "expected_purchase_signal": false
+  },
+  {
+    "customer_id": "+919876543212",
+    "customer_name": "Rajan",
+    "messages": [
+      "anna last batch 7018 rod quality romba mosam",
+      "casting waste aachu, return pannum"
     ],
     "expected_intent": "complaint",
     "expected_sentiment": "negative",
     "expected_purchase_signal": false
   },
   {
-    "customer_id": "+919876543212",
-    "customer_name": "Anita",
+    "customer_id": "+919876543213",
+    "customer_name": "Vijay Fabricators",
     "messages": [
-      "Hi",
-      "How much is the Vitamin C serum?",
-      "I want to buy two bottles"
+      "Hi, do you have E6013 and cut-off wheels in stock?",
+      "Need both for a structural job next week"
+    ],
+    "expected_intent": "purchase_signal",
+    "expected_sentiment": "neutral",
+    "expected_purchase_signal": true
+  },
+  {
+    "customer_id": "+919876543214",
+    "customer_name": "Kumar",
+    "messages": [
+      "super anna, 308L rod nalla work aagudhu",
+      "next week oru batch more order podren"
     ],
     "expected_intent": "purchase_signal",
     "expected_sentiment": "positive",

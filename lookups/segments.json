@@ -10,11 +10,11 @@
   },
   "high_value": {
     "min_orders": 10,
-    "or_min_spend": 5000,
+    "or_min_spend": 50000,
     "label": "VIP"
   },
   "dormant": {
-    "inactive_days": 60,
+    "inactive_days": 120,
     "label": "Dormant"
   }
 }

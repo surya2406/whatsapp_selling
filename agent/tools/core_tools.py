@@ -50,9 +50,10 @@ async def get_customer_profile(customer_id: str, customer_name: str = "") -> dic
         
         rfm = calculate_rfm(purchases)
         segment = assign_segment(rfm)
-        if rfm["recency_days"] > 90:
+        # Churn thresholds calibrated for welding B2B project-based buying cycles
+        if rfm["recency_days"] > 120:
             churn_risk = "high"
-        elif rfm["recency_days"] > 45:
+        elif rfm["recency_days"] > 90:
             churn_risk = "medium"
         else:
             churn_risk = "low"

@@ -35,7 +35,7 @@ class TestRFM:
     def test_dormant_customer_assigned_dormant_segment(self):
         now = datetime.utcnow()
         rfm = {
-            "recency_days": 90,
+            "recency_days": 130,  # B2B dormant threshold is 120 days
             "frequency_count": 3,
             "monetary_total": 900,
         }
@@ -46,7 +46,7 @@ class TestRFM:
         rfm = {
             "recency_days": 5,
             "frequency_count": 2,
-            "monetary_total": 6000,
+            "monetary_total": 55000,  # B2B high_value threshold is 50000
         }
         segment = assign_segment(rfm)
         assert segment == "high_value"

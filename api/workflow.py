@@ -1,9 +1,24 @@
 """Conversation ingestion, analysis, and review-draft creation workflow."""
 import json
 import logging
+import re
 from datetime import datetime
 from pathlib import Path
 from uuid import uuid4
+
+# Electrode type codes customers commonly mention in messages
+_ELECTRODE_TYPES = [
+    "6013", "7018", "7016", "6011", "6010",
+    "308L", "309L", "316L", "312", "310", "347",
+    "E308", "E309", "E316",
+]
+_ELECTRODE_PATTERN = re.compile(
+    r'\b(' + '|'.join(re.escape(e) for e in _ELECTRODE_TYPES) + r')\b',
+    re.IGNORECASE,
+)
+_DIAMETER_PATTERN = re.compile(
+    r'\b(1\.6|2|2\.5|3|3\.15|4|5)(?:\s*mm)?\b'
+)
 
 logger = logging.getLogger(__name__)
 
@@ -26,15 +41,60 @@ _PRODUCTS_PATH = Path(__file__).parent.parent / "lookups" / "products.json"
 
 
 def _find_mentioned_products(messages: list[str]) -> list[dict]:
+    """Match products from customer messages using electrode type codes and exact name/id.
+
+    Customers rarely type full product names (e.g. '6013-SB-12-WOT'). They say
+    '6013 3mm' or '6013 rod'. This function extracts electrode type codes and
+    diameters from the message and matches them against product name fields.
+    Falls back to exact ID/name substring match as well.
+    """
     with open(_PRODUCTS_PATH, encoding="utf-8") as product_file:
         products = json.load(product_file)
 
     combined = " ".join(messages).lower()
+
+    # Extract electrode types and diameters mentioned by the customer
+    mentioned_types = [t.upper() for t in _ELECTRODE_PATTERN.findall(combined)]
+    mentioned_diameters = _DIAMETER_PATTERN.findall(combined)
+
     mentioned = []
+    seen_ids = set()
+
     for product_id, product in products.items():
+        if product_id in seen_ids:
+            continue
         product_name = str(product.get("name", ""))
+        product_name_upper = product_name.upper()
+
+        matched = False
+
+        # 1. Exact ID or full name substring match (original logic)
         if product_id.lower() in combined or (product_name and product_name.lower() in combined):
+            matched = True
+
+        # 2. Electrode type code match (e.g. customer says "6013", product name contains "6013")
+        if not matched:
+            for etype in mentioned_types:
+                if etype in product_name_upper:
+                    # If customer also specified a diameter, narrow the match
+                    if mentioned_diameters:
+                        for diam in mentioned_diameters:
+                            # Normalise: "3" and "3.15" both mean 3.15mm in welding
+                            diam_variants = [diam, diam.replace(".", "")]
+                            if diam == "3":
+                                diam_variants += ["3.15", "315"]
+                            if any(v in product_name_upper or v in product_name for v in diam_variants):
+                                matched = True
+                                break
+                    else:
+                        # No diameter specified — match any size for that electrode type
+                        matched = True
+                if matched:
+                    break
+
+        if matched:
             mentioned.append({"product_id": product_id, "product_name": product_name})
+            seen_ids.add(product_id)
 
     return mentioned
 

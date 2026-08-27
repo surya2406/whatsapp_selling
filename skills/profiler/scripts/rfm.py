@@ -90,14 +90,14 @@ def _compute_rfm_score(recency_days: int, frequency: int, monetary: float) -> in
     else:
         f = 1
 
-    # Monetary score
-    if monetary >= 10000:
+    # Monetary score — calibrated for welding B2B (single electrode box = ₹1,830+)
+    if monetary >= 100000:
         m = 5
-    elif monetary >= 5000:
+    elif monetary >= 50000:
         m = 4
-    elif monetary >= 2000:
+    elif monetary >= 20000:
         m = 3
-    elif monetary >= 500:
+    elif monetary >= 5000:
         m = 2
     else:
         m = 1
