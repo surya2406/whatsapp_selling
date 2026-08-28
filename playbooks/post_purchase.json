@@ -1,9 +1,0 @@
-{
-  "name": "Post-purchase follow-up",
-  "trigger": { "days_after_purchase": 3 },
-  "sentiment_gate": false,
-  "steps": [
-    { "step": 1, "action": "cross_sell_agent", "input": "purchased_product" },
-    { "step": 2, "action": "send_message", "template": "post_purchase_followup" }
-  ]
-}

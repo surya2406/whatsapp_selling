@@ -23,7 +23,10 @@ _DIAMETER_PATTERN = re.compile(
 logger = logging.getLogger(__name__)
 
 from agent.agent import run_agent
-from api.conversation_parser import parse_conversation
+from api.conversation_parser import parse_conversation, _extract_json_object
+from api.supervisor import route_conversation
+from api.direct_reply import generate_direct_reply
+from api.message_filler import fill_message_template
 from api.fetcher import (
     fetch_customer_history_records,
     fetch_unprocessed_messages,
@@ -240,15 +243,46 @@ async def _create_customer_draft(
                 message.parsed_data = json.dumps(existing, ensure_ascii=False)
         await db.commit()
 
-    result = await run_agent(
-        customer_id=customer_id,
-        customer_name="",
-        raw_messages=texts,
-    )
-    if result.get("error") or not result.get("generated_message"):
-        raise RuntimeError(result.get("error") or "Agent returned an empty draft")
-
+    # 2. Supervisor Routing
+    agents_to_call = await route_conversation(customer_id, analysis)
+    
+    generated_message = ""
     summary = analysis.get("raw_summary") or analysis["latest_message"]
+    
+    if "direct_reply" in agents_to_call and "cross_sell_agent" not in agents_to_call:
+        # 3a. Direct Reply fallback
+        customer_name = ""  # Could fetch from DB if needed
+        generated_message = await generate_direct_reply(customer_name, summary)
+    else:
+        # 3b. Run Cross-Sell Agent
+        result = await run_agent(
+            customer_id=customer_id,
+            customer_name="",
+            raw_messages=texts,
+        )
+        if result.get("error") or not result.get("generated_message"):
+            raise RuntimeError(result.get("error") or "Agent returned an empty draft")
+        
+        # 4. Message Fill
+        agent_json = _extract_json_object(result["generated_message"])
+        if not agent_json or "template_key" not in agent_json:
+            logger.warning(f"Agent did not return valid JSON. Raw output: {result['generated_message']}")
+            generated_message = result["generated_message"]  # Fallback to raw output
+        else:
+            template_key = agent_json["template_key"]
+            template_data = agent_json.get("template_data", {})
+            # Fetch actual template string using core tool or direct load. 
+            # For simplicity, we assume agent or core tools loaded it, but we need the actual template string.
+            from agent.tools.core_tools import _read
+            import asyncio
+            try:
+                templates = await asyncio.to_thread(_read)
+                template_str = templates.get(template_key, templates.get("general_reply", "Hi {name}!"))
+                generated_message = await fill_message_template(template_str, template_data)
+            except Exception as e:
+                logger.error(f"Failed to load templates for filler: {e}")
+                generated_message = result["generated_message"]
+
     if len(summary) > 300:
         summary = summary[:297] + "..."
     review_reason = None
@@ -263,7 +297,7 @@ async def _create_customer_draft(
             conversation_summary=summary,
             analysis=json.dumps(analysis),
             sentiment=analysis["sentiment"],
-            generated_message=result["generated_message"],
+            generated_message=generated_message,
             status="pending_review",
             manual_review_reason=review_reason,
         )

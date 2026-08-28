@@ -13,20 +13,24 @@ logger = logging.getLogger(__name__)
 _ROOT = Path(__file__).parent.parent
 _PARSER_SKILL_PATH = _ROOT / "skills" / "parser" / "SKILL.md"
 _PLAYBOOK_DIR = _ROOT / "playbooks"
+_AGENT_PLAYBOOK_DIR = _ROOT / "skills" / "cross_sell_agent" / "assets" / "playbooks"
 
 
 def _load_reference_context() -> str:
     skill_text = _PARSER_SKILL_PATH.read_text(encoding="utf-8") if _PARSER_SKILL_PATH.exists() else ""
     playbook_notes = []
-    for name in ["new_customer.json", "repeat_buyer.json", "high_value.json", "post_purchase.json"]:
-        path = _PLAYBOOK_DIR / name
-        if not path.exists():
-            continue
+    
+    # Collect all playbooks from root and agent-specific directories
+    playbook_paths = list(_PLAYBOOK_DIR.glob("*.json"))
+    if _AGENT_PLAYBOOK_DIR.exists():
+        playbook_paths.extend(_AGENT_PLAYBOOK_DIR.glob("*.json"))
+        
+    for path in playbook_paths:
         try:
             data = json.loads(path.read_text(encoding="utf-8"))
             playbook_notes.append(
                 {
-                    "name": data.get("name", name),
+                    "name": data.get("name", path.stem),
                     "sentiment_gate": data.get("sentiment_gate", True),
                     "steps": data.get("steps", []),
                 }
