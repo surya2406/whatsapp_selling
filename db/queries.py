@@ -10,6 +10,7 @@ from db.models import (
     AgentResponse,
     ConversationMessage,
     Customer,
+    Order,
     ProcessingBatch,
     Purchase,
     Recommendation,
@@ -52,6 +53,69 @@ async def update_customer_profile(db: AsyncSession, customer_id: str, **kwargs) 
     return customer
 
 
+# ─── Order queries ────────────────────────────────────────────────────────────
+
+async def get_customer_orders(db: AsyncSession, customer_id: str) -> list[Order]:
+    result = await db.execute(
+        select(Order)
+        .filter(Order.customer_id == customer_id)
+        .order_by(Order.created_at.desc())
+    )
+    return list(result.scalars().all())
+
+
+async def get_order_by_id(db: AsyncSession, order_id: str) -> Optional[Order]:
+    result = await db.execute(select(Order).filter(Order.id == order_id))
+    return result.scalars().first()
+
+
+async def upsert_order(
+    db: AsyncSession,
+    order_id: str,
+    customer_id: str,
+    phone_number: str,
+    current_state: str,
+    total_amount: float,
+    raw_order_items: str,
+    whatsapp_message_id: Optional[str] = None,
+    party_code: Optional[str] = None,
+    order_confirm: Optional[str] = "0",
+    created_at: Optional[datetime] = None,
+    updated_at: Optional[datetime] = None,
+) -> Order:
+    order = await get_order_by_id(db, order_id)
+    if order:
+        order.current_state = current_state
+        order.total_amount = total_amount
+        order.raw_order_items = raw_order_items
+        if order_confirm is not None:
+            order.order_confirm = order_confirm
+        if party_code:
+            order.party_code = party_code
+        if whatsapp_message_id:
+            order.whatsapp_message_id = whatsapp_message_id
+        if updated_at:
+            order.updated_at = updated_at
+    else:
+        order = Order(
+            id=order_id,
+            customer_id=customer_id,
+            phone_number=phone_number,
+            whatsapp_message_id=whatsapp_message_id,
+            party_code=party_code,
+            current_state=current_state,
+            order_confirm=order_confirm,
+            total_amount=total_amount,
+            raw_order_items=raw_order_items,
+            created_at=created_at or datetime.utcnow(),
+            updated_at=updated_at or datetime.utcnow(),
+        )
+        db.add(order)
+    await db.commit()
+    await db.refresh(order)
+    return order
+
+
 # ─── Purchase queries ─────────────────────────────────────────────────────────
 
 async def get_customer_purchases(db: AsyncSession, customer_id: str) -> list[Purchase]:
@@ -63,6 +127,18 @@ async def get_customer_purchases(db: AsyncSession, customer_id: str) -> list[Pur
     return list(result.scalars().all())
 
 
+async def get_customer_purchased_products(db: AsyncSession, customer_id: str) -> list[str]:
+    """Returns unique product IDs purchased by customer, newest first."""
+    purchases = await get_customer_purchases(db, customer_id)
+    seen = set()
+    products = []
+    for p in purchases:
+        if p.product_id and p.product_id not in seen:
+            seen.add(p.product_id)
+            products.append(p.product_id)
+    return products
+
+
 async def get_last_purchase(db: AsyncSession, customer_id: str) -> Optional[Purchase]:
     result = await db.execute(
         select(Purchase)
@@ -72,12 +148,24 @@ async def get_last_purchase(db: AsyncSession, customer_id: str) -> Optional[Purc
     return result.scalars().first()
 
 
-async def add_purchase(db: AsyncSession, customer_id: str, product_id: str, amount: float) -> Purchase:
+async def add_purchase(
+    db: AsyncSession,
+    customer_id: str,
+    product_id: str,
+    amount: float,
+    order_id: Optional[str] = None,
+    quantity: int = 1,
+    unit_price: float = 0.0,
+    purchased_at: Optional[datetime] = None,
+) -> Purchase:
     purchase = Purchase(
         customer_id=customer_id,
         product_id=product_id,
         amount=amount,
-        purchased_at=datetime.utcnow(),
+        order_id=order_id,
+        quantity=quantity,
+        unit_price=unit_price,
+        purchased_at=purchased_at or datetime.utcnow(),
     )
     db.add(purchase)
     await db.commit()
@@ -163,6 +251,19 @@ async def get_customer_conversation(
         .limit(limit)
     )
     return list(reversed(result.scalars().all()))
+
+
+async def get_customer_purchased_products(
+    db: AsyncSession, customer_id: str
+) -> list[str]:
+    """Returns all purchased product IDs for a customer, most recent first, for cross-sell lookups."""
+    result = await db.execute(
+        select(Purchase.product_id)
+        .filter(Purchase.customer_id == customer_id)
+        .order_by(Purchase.purchased_at.desc())
+    )
+    return list(result.scalars().all())
+
 
 
 async def get_review_draft(db: AsyncSession, draft_id: int):

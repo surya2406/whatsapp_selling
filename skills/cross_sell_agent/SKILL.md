@@ -24,7 +24,8 @@ Your job is to:
 ### Step 1: Profile the Customer
 Call `get_customer_profile` with the customer's phone number to get:
 - `segment`: new | repeat | high_value | dormant
-- `last_purchased_product`: product ID of their most recent purchase
+- `last_purchased_product`: product ID of their most recent purchase (synced from orders table)
+- `purchased_products`: list of all product IDs the customer previously bought
 - `churn_risk`: low | medium | high
 - `rfm_score`: 1-5
 
@@ -38,8 +39,10 @@ Use `load_skill_resource` to load the matching playbook from `assets/playbooks/`
 Follow the playbook's `steps` exactly. If `sentiment_gate: true`, check customer sentiment first.
 
 ### Step 3: Get Cross-Sell Options
-Call `get_cross_sell_options` with the `last_purchased_product` to get a list of
-complementary product IDs and a reason string.
+Identify which product to base recommendations on:
+- If customer mentioned a product in their message, use that product ID.
+- If customer did NOT mention a product, use `last_purchased_product` from their profile.
+Call `get_cross_sell_options` with that product ID to get a list of complementary product IDs and a reason string.
 
 ### Step 4: Resolve Product Names
 Call `get_product_info` for each recommended product ID to get the human-readable
@@ -49,16 +52,22 @@ name, price, and description.
 Call `get_message_template` with the template key from the playbook
 (e.g., `cross_sell_only`, `new_customer_welcome`, `winback_we_miss_you`).
 
-### Step 6: Write the WhatsApp Message
-Craft a final WhatsApp reply using:
-- The customer's first name
-- The product they last bought
-- The recommended products with their names and prices
-- A warm, conversational tone (not robotic)
-- 1-2 emojis max
+### Step 6: Output Structure
+Return ONLY a JSON object with this exact schema:
+```json
+{
+  "template_key": "<key of the chosen message template>",
+  "template_data": {
+    "name": "<customer name>",
+    "product_name": "<name of purchased/mentioned product>",
+    "suggestion": "<name of recommended product>",
+    "discount": "<discount amount if applicable>",
+    "offer_code": "<offer code if applicable>"
+  }
+}
+```
 
 **Rules:**
 - NEVER recommend products not found in the cross-sell rules.
-- If sentiment is negative, skip recommendations and respond empathetically.
-- Keep the message under 200 words.
-- Respond ONLY with the final WhatsApp message text — no JSON, no labels.
+- If sentiment is negative, select the empathy template and skip commercial offers.
+- Return ONLY valid JSON matching the schema above — no conversational preambles or markdown codeblocks.

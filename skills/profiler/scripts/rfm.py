@@ -3,11 +3,14 @@ RFM Scorer — pure Python, no LLM.
 Calculates Recency, Frequency, Monetary values and assigns a 1-5 score per axis.
 """
 import json
+import logging
 from datetime import datetime
 from pathlib import Path
 from typing import Optional
 
+logger = logging.getLogger(__name__)
 LOOKUPS_DIR = Path(__file__).parent.parent.parent.parent / "lookups"
+
 
 
 def _load_segments() -> dict:
@@ -27,6 +30,7 @@ def calculate_rfm(purchases: list) -> dict:
     }
     """
     if not purchases:
+        logger.debug("[calculate_rfm] No purchases — returning defaults")
         return {
             "recency_days": 9999,
             "frequency_count": 0,
@@ -55,13 +59,18 @@ def calculate_rfm(purchases: list) -> dict:
 
     rfm_score = _compute_rfm_score(recency_days, frequency_count, monetary_total)
 
-    return {
+    result = {
         "recency_days": recency_days,
         "frequency_count": frequency_count,
         "monetary_total": monetary_total,
         "rfm_score": rfm_score,
         "last_purchased_product": last_purchased_product,
     }
+    logger.debug(
+        "[calculate_rfm] DONE recency=%dd frequency=%d monetary=%.0f rfm_score=%d last_product=%s",
+        recency_days, frequency_count, monetary_total, rfm_score, last_purchased_product
+    )
+    return result
 
 
 def _compute_rfm_score(recency_days: int, frequency: int, monetary: float) -> int:

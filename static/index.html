@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Troudz WhatsApp Sales Copilot — LangGraph Proactive Engine</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <div class="app-container">
+
+    <!-- ── Top Header ────────────────────────────────────────────────────── -->
+    <header class="app-header">
+      <div class="brand-section">
+        <div class="brand-logo">⚡</div>
+        <div class="brand-info">
+          <h1>Troudz Industrial Copilot</h1>
+          <p>WhatsApp Cross-Sell Engine · LangGraph Multi-Agent · Human-in-the-Loop Review</p>
+        </div>
+      </div>
+      <div class="header-status-pills">
+        <div class="status-pill" id="pill-engine-status">
+          <span class="pulse-dot"></span>
+          <span>Agent Active</span>
+        </div>
+        <div class="status-pill model-pill" id="pill-model">
+          <span>🟣 qwen3.5:9b (Ollama)</span>
+        </div>
+        <div class="status-pill hitl-pill" id="pill-hitl">
+          <span>🛡️ HITL Review Armed</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- ── KPI Stats Grid ────────────────────────────────────────────────── -->
+    <section class="stats-grid" id="stats-section">
+      <div class="stat-card" style="--accent-color: var(--accent-emerald);">
+        <div class="stat-header">
+          <span>Customers Profiled</span>
+          <span>👥</span>
+        </div>
+        <div class="stat-value" id="stat-customers">-</div>
+        <div class="stat-footer">
+          <span>Synced from Meta & Custom Layer</span>
+        </div>
+      </div>
+
+      <div class="stat-card" style="--accent-color: var(--accent-blue);">
+        <div class="stat-header">
+          <span>Past Orders Synced</span>
+          <span>📦</span>
+        </div>
+        <div class="stat-value" id="stat-orders">-</div>
+        <div class="stat-footer">
+          <span id="stat-purchases-sub">Purchases recorded</span>
+        </div>
+      </div>
+
+      <div class="stat-card" style="--accent-color: var(--accent-amber);">
+        <div class="stat-header">
+          <span>Drafts Pending Review</span>
+          <span>⏳</span>
+        </div>
+        <div class="stat-value" id="stat-drafts-pending">-</div>
+        <div class="stat-footer">
+          <span>Awaiting Human Approval</span>
+        </div>
+      </div>
+
+      <div class="stat-card" style="--accent-color: var(--accent-cyan);">
+        <div class="stat-header">
+          <span>Approved & Sent</span>
+          <span>🚀</span>
+        </div>
+        <div class="stat-value" id="stat-drafts-approved">-</div>
+        <div class="stat-footer">
+          <span>Delivered via WhatsApp API</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Dual API Control Deck ─────────────────────────────────────────── -->
+    <section class="api-deck">
+      <!-- API 1 Card -->
+      <div class="api-card" id="card-api1">
+        <div class="api-card-header">
+          <div>
+            <span class="api-badge api-1">API 1 · Data Ingestion</span>
+            <h2 class="api-title" style="margin-top: 6px;">Sync Meta Engine & Custom Layer</h2>
+          </div>
+          <span style="font-size: 24px;">📥</span>
+        </div>
+        <p class="api-desc">
+          Fetches raw WhatsApp messages from Meta DB and customer purchase orders from Custom Layer MySQL, parses conversations, and stores in local SQLite.
+        </p>
+        <div class="api-form">
+          <div class="form-row">
+            <div class="form-group" style="flex: 1;">
+              <label class="form-label" for="ingest-limit-select">Fetch Batch Limit</label>
+              <select id="ingest-limit-select" class="select-input">
+                <option value="5">5 Customers</option>
+                <option value="10" selected>10 Customers (Default)</option>
+                <option value="25">25 Customers</option>
+              </select>
+            </div>
+            <button id="btn-run-ingest" class="btn btn-blue" style="margin-top: 22px;">
+              <span>Run Ingest Pipeline</span>
+              <span>⚡</span>
+            </button>
+          </div>
+          <div id="ingest-status-msg" style="font-size: 12px; color: var(--text-muted);">
+            Endpoint: <code style="color: #93c5fd;">POST /api/ingest</code>
+          </div>
+        </div>
+      </div>
+
+      <!-- API 2 Card -->
+      <div class="api-card" id="card-api2">
+        <div class="api-card-header">
+          <div>
+            <span class="api-badge api-2">API 2 · LangGraph Proactive Engine</span>
+            <h2 class="api-title" style="margin-top: 6px;">Trigger Cross-Sell Recommendation</h2>
+          </div>
+          <span style="font-size: 24px;">🤖</span>
+        </div>
+        <p class="api-desc">
+          Passes stored past orders & chat history to the LangGraph StateMachine. Proactively recommends complementary products and creates a review draft.
+        </p>
+        <div class="api-form">
+          <div class="form-row">
+            <div class="form-group" style="flex: 1;">
+              <label class="form-label" for="cross-sell-customer-input">Target Customer Phone</label>
+              <input type="text" id="cross-sell-customer-input" class="text-input" placeholder="e.g. 919488924793" value="919488924793">
+            </div>
+            <button id="btn-run-cross-sell" class="btn btn-primary" style="margin-top: 22px;">
+              <span>Run LangGraph Agent</span>
+              <span>⚡</span>
+            </button>
+          </div>
+          <div class="quick-samples">
+            <span style="font-size: 11px; color: var(--text-muted); align-self: center;">Quick Select:</span>
+            <button class="sample-chip" data-phone="919488924793">919488924793 (Kannan Welding)</button>
+            <button class="sample-chip" data-phone="917358714068">917358714068 (MS.Fabtool)</button>
+          </div>
+          <div id="cross-sell-status-msg" style="font-size: 12px; color: var(--text-muted);">
+            Endpoint: <code style="color: #34d399;">POST /api/run-cross-sell/{customer_id}</code>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Main Workspace Navigation (Tabs) ──────────────────────────────── -->
+    <nav class="tabs-bar">
+      <button class="tab-btn active" data-tab="tab-inbox">
+        <span>HITL Review Inbox</span>
+        <span class="tab-badge" id="tab-inbox-badge">0</span>
+      </button>
+      <button class="tab-btn" data-tab="tab-customers">
+        <span>Customer Explorer</span>
+      </button>
+      <button class="tab-btn" data-tab="tab-orders">
+        <span>Synced Orders</span>
+      </button>
+    </nav>
+
+    <!-- ── TAB 1: Review Inbox (HITL) ────────────────────────────────────── -->
+    <section class="tab-content" id="tab-inbox">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+        <div style="display: flex; gap: 8px;">
+          <button class="btn btn-secondary btn-sm filter-btn active" data-status="pending_review">Pending Review</button>
+          <button class="btn btn-secondary btn-sm filter-btn" data-status="sent">Sent to WhatsApp</button>
+          <button class="btn btn-secondary btn-sm filter-btn" data-status="rejected">Rejected</button>
+          <button class="btn btn-secondary btn-sm filter-btn" data-status="">All Drafts</button>
+        </div>
+        <div style="display: flex; gap: 8px;">
+          <button id="btn-clear-mock" class="btn btn-secondary btn-sm" style="color: #fb7185; border-color: rgba(244, 63, 94, 0.3);" title="Remove all legacy mock drafts">
+            <span>Clear Mock Drafts</span>
+          </button>
+          <button id="btn-refresh-drafts" class="btn btn-secondary btn-sm">
+            <span>Refresh</span>
+          </button>
+        </div>
+      </div>
+
+
+      <div class="drafts-container" id="drafts-grid">
+        <!-- Injected via JavaScript -->
+        <div class="empty-state">
+          <div class="empty-state-icon">⏳</div>
+          <h3>Loading review drafts...</h3>
+          <p>Connecting to local SQLite database</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── TAB 2: Customer 360° Explorer ─────────────────────────────────── -->
+    <section class="tab-content" id="tab-customers" style="display: none;">
+      <div class="customer-table-container">
+        <div class="table-header-tools">
+          <h3 style="font-size: 16px; font-weight: 700;">Customer Database & RFM Profiles</h3>
+          <input type="text" id="customer-search" class="search-input" placeholder="Search by phone, name, or segment...">
+        </div>
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Customer Phone</th>
+              <th>Name</th>
+              <th>Segment</th>
+              <th>RFM Score</th>
+              <th>Total Spend</th>
+              <th>Churn Risk</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody id="customers-table-body">
+            <!-- Injected via JavaScript -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ── TAB 3: Synced Past Orders ─────────────────────────────────────── -->
+    <section class="tab-content" id="tab-orders" style="display: none;">
+      <div class="customer-table-container">
+        <div class="table-header-tools">
+          <h3 style="font-size: 16px; font-weight: 700;">Custom Layer Synced Orders</h3>
+          <span style="font-size: 12px; color: var(--text-muted);">Used by Cross-Sell Engine for complementary recommendations</span>
+        </div>
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Order ID</th>
+              <th>Customer Phone</th>
+              <th>State</th>
+              <th>Total Amount</th>
+              <th>Ordered Products</th>
+              <th>Cross-Sell Suggested</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody id="orders-table-body">
+            <!-- Injected via JavaScript -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+  </div> <!-- /app-container -->
+
+  <!-- ── Edit Draft Modal ────────────────────────────────────────────────── -->
+  <div class="modal-overlay" id="modal-edit-draft">
+    <div class="modal-box">
+      <div class="modal-header">
+        <h3 class="modal-title">✏️ Edit WhatsApp Sales Message</h3>
+        <button class="modal-close-btn" id="modal-close-btn">✕</button>
+      </div>
+      <div class="modal-body">
+        <div>
+          <div style="font-size: 12px; color: var(--text-muted); margin-bottom: 4px;">Target Customer</div>
+          <div style="font-size: 14px; font-weight: 700; color: var(--text-primary);" id="modal-customer-meta">Customer Phone</div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="modal-edit-textarea">Custom Message Content (Tamil / English / Tanglish)</label>
+          <textarea id="modal-edit-textarea" class="edit-textarea" placeholder="Type customized message..."></textarea>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Live WhatsApp Preview</label>
+          <div class="wa-preview-container">
+            <div class="wa-bubble" id="modal-wa-preview-text">
+              Type above to preview...
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" id="modal-btn-cancel">Cancel</button>
+        <button class="btn btn-primary" id="modal-btn-save-send">
+          <span>Approve & Send to WhatsApp</span>
+          <span>🚀</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Customer Deep Dive Drawer Modal ─────────────────────────────────── -->
+  <div class="modal-overlay" id="modal-customer-detail">
+    <div class="modal-box" style="max-width: 760px;">
+      <div class="modal-header">
+        <h3 class="modal-title" id="cust-modal-title">Customer 360° Profile</h3>
+        <button class="modal-close-btn" id="cust-modal-close-btn">✕</button>
+      </div>
+      <div class="modal-body" id="cust-modal-body">
+        <!-- Dynamically injected -->
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" id="cust-modal-btn-close">Close</button>
+        <button class="btn btn-primary" id="cust-modal-btn-cross-sell">
+          <span>Run Cross-Sell for this Customer</span>
+          <span>🔥</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Toast Notifications Container ───────────────────────────────────── -->
+  <div class="toast-container" id="toast-container"></div>
+
+  <!-- ── JavaScript Application Logic ────────────────────────────────────── -->
+  <script src="/static/app.js"></script>
+</body>
+</html>

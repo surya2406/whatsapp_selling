@@ -1,9 +1,0 @@
-{
-  "name": "Dormant customer win-back",
-  "trigger": { "segment": "dormant", "inactive_days": 60 },
-  "sentiment_gate": false,
-  "steps": [
-    { "step": 1, "action": "offer_agent", "filter": "winback_offers_only" },
-    { "step": 2, "action": "send_message", "template": "winback_we_miss_you" }
-  ]
-}

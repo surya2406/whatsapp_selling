@@ -26,6 +26,7 @@ class Customer(Base):
     agent_responses = relationship("AgentResponse", back_populates="customer")
     recommendations = relationship("Recommendation", back_populates="customer")
     purchases = relationship("Purchase", back_populates="customer")
+    orders = relationship("Order", back_populates="customer")
     conversation_messages = relationship("ConversationMessage", back_populates="customer")
     review_drafts = relationship("ReviewDraft", back_populates="customer")
 
@@ -127,14 +128,39 @@ class Recommendation(Base):
     customer = relationship("Customer", back_populates="recommendations")
 
 
+class Order(Base):
+    """Auditable local record of customer orders synced from custom_layer/Meta Engine DB."""
+    __tablename__ = "orders"
+
+    id = Column(String(50), primary_key=True)  # order_id from orders table
+    customer_id = Column(String(50), ForeignKey("customers.id"), nullable=False, index=True)
+    phone_number = Column(String(50), nullable=False)
+    whatsapp_message_id = Column(String(100), nullable=True)
+    party_code = Column(String(50), nullable=True)
+    current_state = Column(String(50), nullable=False)  # Completed | ORDER_CONFIRMATION_PENDING | Failed etc.
+    order_confirm = Column(String(10), nullable=True, default="0")
+    total_amount = Column(Float, nullable=False, default=0.0)
+    raw_order_items = Column(Text, nullable=False)  # Raw JSON array of items
+    created_at = Column(DateTime, default=datetime.utcnow)
+    updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
+
+    customer = relationship("Customer", back_populates="orders")
+    purchases = relationship("Purchase", back_populates="order")
+
+
 class Purchase(Base):
-    """Records of customer purchases (fed from meta engine or manual import)."""
+    """Records of customer purchases (fed from orders table or manual import)."""
     __tablename__ = "purchases"
 
     id = Column(Integer, primary_key=True, autoincrement=True)
-    customer_id = Column(String(50), ForeignKey("customers.id"), nullable=False)
-    product_id = Column(String(50), nullable=False)
+    order_id = Column(String(50), ForeignKey("orders.id"), nullable=True, index=True)
+    customer_id = Column(String(50), ForeignKey("customers.id"), nullable=False, index=True)
+    product_id = Column(String(50), nullable=False, index=True)
+    quantity = Column(Integer, nullable=False, default=1)
+    unit_price = Column(Float, nullable=False, default=0.0)
     amount = Column(Float, nullable=False, default=0.0)
     purchased_at = Column(DateTime, default=datetime.utcnow)
 
     customer = relationship("Customer", back_populates="purchases")
+    order = relationship("Order", back_populates="purchases")
+

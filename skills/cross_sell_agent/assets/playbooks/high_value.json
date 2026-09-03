@@ -1,6 +1,6 @@
 {
   "name": "VIP customer flow",
-  "trigger": { "segment": "high_value", "min_orders": 10 },
+  "trigger": { "segment": "high_value", "min_orders": 10, "or_min_spend": 50000 },
   "sentiment_gate": true,
   "steps": [
     { "step": 1, "action": "check_sentiment", "on_negative": "route_to_human" },

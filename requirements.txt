@@ -1,7 +1,11 @@
-# Agent orchestration
-google-adk>=0.1.0
+# Agent orchestration — LangGraph multi-agent framework
+langgraph>=0.3.0
+langchain>=0.3.0
+langchain-core>=0.3.0
+langchain-ollama>=0.2.0
+langchain-community>=0.3.0
 
-# LLM — LiteLLM is bundled with google-adk and handles Ollama via ollama_chat/ prefix
+# LLM — LiteLLM for direct API calls (parser, supervisor, direct_reply, message_filler)
 litellm>=1.65.5
 openai>=1.40.0  # needed by litellm for the openai provider fallback
 

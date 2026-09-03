@@ -29,6 +29,10 @@ class Settings(BaseSettings):
     meta_engine_timestamp_col: str = "created_at"
     meta_engine_processed_col: str = "is_processed"
 
+    # ── Custom Layer DB (Orders table) ────────────────────────────────────────
+    custom_layer_db_url: str = ""
+    orders_table_name: str = "orders"
+
     # Meta Engine outbound HTTP endpoint. It must accept customer_id and message.
     meta_send_api_url: str = ""
     meta_send_api_token: str = ""

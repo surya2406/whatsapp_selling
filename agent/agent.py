@@ -1,107 +1,102 @@
 """
-agent/agent.py — WhatsApp Cross-Sell Agent (Google ADK)
+agent/agent.py — WhatsApp Cross-Sell Agent (100% LangGraph)
 
-Follows the proper ADK pattern:
-  - root_agent variable (required by ADK)
-  - SkillToolset pointing to the skills/ directory
-  - LiteLlm for local Ollama model
-  - Python tools for DB, lookups, and profile access
-
-Skills directory structure (ADK L1/L2/L3):
-  skills/cross_sell_agent/
-    SKILL.md              ← L1 metadata + L2 instructions
-    references/           ← L3 extended guidance docs
-      workflow.md
-    assets/               ← L3 data resources
-      playbooks/          ← segment-based playbooks
-      lookups/            ← product catalog + cross-sell rules
-    scripts/              ← L3 executable helpers
-      cross_sell_helper.py
-
-Run with:
-  adk web    (from the whatsapp_selling_agent/ directory)
-  adk run agent
+Replaced Google ADK with pure LangGraph StateGraph / ReAct agent.
+Uses:
+  - LangGraph create_react_agent
+  - langchain_ollama ChatOllama
+  - LangChain @tool wrappers
+  - Past orders & purchase history based proactive cross-selling
 """
-
 import json
 import logging
-import os
 from pathlib import Path
-
-from google.adk.agents import Agent
-from google.adk.models.lite_llm import LiteLlm
-from google.adk.runners import Runner
-from google.adk.sessions import InMemorySessionService
-from google.genai import types as genai_types
+from langchain_ollama import ChatOllama
+from langchain_core.tools import tool
+from langchain_core.messages import HumanMessage
+from langgraph.prebuilt import create_react_agent
 
 from config.settings import settings
-from cache.redis_client import cache_customer_profile, get_cached_customer_profile
-from agent.tools.core_tools import get_customer_profile, get_cross_sell_options, get_product_info, get_message_template
+from agent.tools.core_tools import (
+    get_customer_profile,
+    get_cross_sell_options,
+    get_product_info,
+    get_message_template,
+)
 
 logger = logging.getLogger(__name__)
 
-# ── Paths ──────────────────────────────────────────────────────────────────────
-_LOOKUPS_DIR = Path(__file__).parent.parent / "lookups"
-_SKILLS_DIR = Path(__file__).parent.parent / "skills"
+# ── LangChain @tool definitions ───────────────────────────────────────────────
 
-# ── Ensure LiteLLM uses correct Ollama endpoint ────────────────────────────────
-os.environ.setdefault("OLLAMA_API_BASE", settings.ollama_api_base)
-
-
+@tool
+async def tool_customer_profile(customer_id: str, customer_name: str = "") -> dict:
+    """Fetches the customer's purchase history, past orders, and returns their RFM profile and purchased products."""
+    return await get_customer_profile(customer_id, customer_name)
 
 
+@tool
+async def tool_cross_sell_options(product_id: str, max_suggestions: int = 3) -> dict:
+    """Given a purchased product ID, returns complementary product IDs that can be recommended as cross-sell items."""
+    return await get_cross_sell_options(product_id, max_suggestions)
 
-# ══════════════════════════════════════════════════════════════════════════════
-#  ROOT AGENT
-#  This is the required entry point for `adk run` and `adk web`.
-# ══════════════════════════════════════════════════════════════════════════════
 
-root_agent = Agent(
-    name="whatsapp_cross_sell_agent",
-    model=LiteLlm(model=f"ollama_chat/{settings.ollama_model}"),
-    description=(
-        "A WhatsApp sales agent that reads customer purchase history and "
-        "recommends the best complementary products using cross-sell rules."
-    ),
-    instruction=(
-        "You are a WhatsApp sales assistant for a welding supplies company in South India. "
-        "You will receive raw customer message payloads directly from the Meta WhatsApp API database. "
-        "Read the supplied messages to understand the conversation, profile the customer using the available tools, "
-        "resolve mentioned or previously purchased product IDs, and find cross-sell options. "
-        "IMPORTANT: You do not write the final message. Your ONLY job is to select the correct template and provide the data to fill it. "
-        "Return ONLY a JSON object with this exact schema:\n"
-        "{\n"
-        '  "template_key": "<key of the chosen message template>",\n'
-        '  "template_data": {\n'
-        '    "name": "<customer name>",\n'
-        '    "product_name": "<name of purchased/mentioned product>",\n'
-        '    "suggestion": "<name of recommended product>",\n'
-        '    "discount": "<discount amount if applicable>",\n'
-        '    "offer_code": "<offer code if applicable>"\n'
-        "  }\n"
-        "}\n"
-    ),
-    tools=[
-        get_customer_profile,
-        get_cross_sell_options,
-        get_product_info,
-        get_message_template,
-    ],
+@tool
+async def tool_product_info(product_id: str) -> dict:
+    """Looks up a product by its ID and returns its name, price, and description."""
+    return await get_product_info(product_id)
+
+
+@tool
+async def tool_message_template(template_key: str) -> str:
+    """Returns the raw WhatsApp message template string for a given template key."""
+    return await get_message_template(template_key)
+
+
+from skills.loader import load_skill, get_available_skills_prompt
+
+TOOLS = [
+    load_skill,
+    tool_customer_profile,
+    tool_cross_sell_options,
+    tool_product_info,
+    tool_message_template,
+]
+
+SYSTEM_PROMPT = (
+    "You are the Troudz WhatsApp B2B Sales Copilot for industrial welding supplies in South India.\n\n"
+    f"{get_available_skills_prompt()}\n\n"
+    "Guidelines:\n"
+    "1. When analyzing customer purchase history or choosing playbooks, call load_skill('cross-sell-agent').\n"
+    "2. Inspect the customer profile and past orders to recommend complementary products.\n"
+    "3. Return ONLY a JSON object with this exact schema:\n"
+    "{\n"
+    '  "template_key": "<key of the chosen message template>",\n'
+    '  "template_data": {\n'
+    '    "name": "<customer name>",\n'
+    '    "product_name": "<name of purchased/mentioned product>",\n'
+    '    "suggestion": "<name of recommended product>",\n'
+    '    "discount": "<discount amount if applicable, else empty string>",\n'
+    '    "offer_code": "<offer code if applicable, else empty string>"\n'
+    '  }\n'
+    "}\n\n"
+    "Important: Always produce output in clean, professional B2B English."
 )
 
-# ══════════════════════════════════════════════════════════════════════════════
-#  API RUNNER SUPPORT
-# ══════════════════════════════════════════════════════════════════════════════
+# ── LangGraph ReAct Agent ─────────────────────────────────────────────────────
 
-_session_service = InMemorySessionService()
+llm = ChatOllama(
+    model=settings.ollama_model,
+    base_url=settings.ollama_api_base,
+    temperature=0,
+)
 
-async def create_session(user_id: str) -> str:
-    """Create a new ADK session and return its session ID."""
-    session = await _session_service.create_session(
-        app_name=root_agent.name,
-        user_id=user_id,
-    )
-    return session.id
+langgraph_agent = create_react_agent(
+    model=llm,
+    tools=TOOLS,
+    prompt=SYSTEM_PROMPT,
+)
+
+
 
 async def run_agent(
     customer_id: str,
@@ -110,59 +105,35 @@ async def run_agent(
     session_id: str | None = None,
 ) -> dict:
     """
-    Run the root_agent for a batch of WhatsApp messages.
-    Creates a new session if none is provided.
+    Run the LangGraph cross-sell agent for a customer.
+    Replaces the previous ADK Runner.
     """
-    if session_id is None:
-        session_id = await create_session(user_id=customer_id)
-
+    logger.info("[run_agent] START customer_id=%s messages=%d", customer_id, len(raw_messages))
     conversation_text = "\n".join(
         f"[{i+1}] {msg}" for i, msg in enumerate(raw_messages[-10:])
     )
-    user_message = (
-        f"Customer: {customer_name} (ID: {customer_id})\n"
-        f"Messages:\n{conversation_text}"
-    )
-
-    runner = Runner(
-        agent=root_agent,
-        app_name=root_agent.name,
-        session_service=_session_service,
-    )
-    new_message = genai_types.Content(
-        role="user",
-        parts=[genai_types.Part(text=user_message)],
+    user_prompt = (
+        f"Customer: {customer_name or 'Anna'} (ID: {customer_id})\n"
+        f"Recent Messages:\n{conversation_text}\n\n"
+        "Check customer purchase history and past orders to recommend complementary cross-sell products."
     )
 
     try:
-        generated_message = ""
-        async for event in runner.run_async(
-            user_id=customer_id,
-            session_id=session_id,
-            new_message=new_message,
-        ):
-            if event.is_final_response():
-                if event.content and event.content.parts:
-                    for part in event.content.parts:
-                        text = getattr(part, "text", None)
-                        if text:
-                            generated_message = text
-                break
-
-        logger.info(
-            f"ADK agent complete: customer={customer_id} "
-            f"message_len={len(generated_message)}"
-        )
+        result = await langgraph_agent.ainvoke({
+            "messages": [HumanMessage(content=user_prompt)]
+        })
+        last_message = result["messages"][-1].content
+        logger.info("[run_agent] DONE customer_id=%s output_len=%d", customer_id, len(last_message))
         return {
-            "generated_message": generated_message,
-            "session_id": session_id,
+            "generated_message": last_message,
+            "session_id": session_id or customer_id,
             "error": None,
         }
-
-    except Exception as e:
-        logger.error(f"ADK agent failed for customer={customer_id}: {e}")
+    except Exception as exc:
+        logger.error("[run_agent] FAILED customer_id=%s error=%s", customer_id, exc, exc_info=True)
         return {
             "generated_message": "",
-            "session_id": session_id,
-            "error": str(e),
+            "session_id": session_id or customer_id,
+            "error": str(exc),
         }
+
