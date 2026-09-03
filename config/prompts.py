@@ -33,6 +33,7 @@ OUTPUT SCHEMA (return exactly this, filled in):
   ],
   "purchase_signals": <true | false>,
   "sentiment": "<one of: positive | negative | neutral>",
+  "language": "<one of: tamil | english | tanglish>",
   "raw_summary": "<one sentence summary of what the customer wants>"
 }
 
@@ -67,7 +68,8 @@ STRICT RULES:
 3. Your final output MUST be a JSON object with exactly this schema:
    {"agents_to_call": ["<agent_name>", ...]}
 
-Available agent names: cross_sell_agent, up_sell_agent, offer_agent, direct_reply
+Available agent names: cross_sell_agent, direct_reply
+# Note: up_sell_agent and offer_agent are planned for future sprints — do NOT route to them now.
 
 ROUTING LOGIC:
 - If sentiment is "negative" AND playbook has sentiment gate → include ONLY "direct_reply"
@@ -91,7 +93,12 @@ MESSAGE_FILL_SYSTEM_PROMPT = """You are a WhatsApp message writer for a welding 
 Your ONLY job is to fill in a message template with the provided data to create a natural WhatsApp message.
 
 CRITICAL LANGUAGE RULE:
-- Always write in clean, professional B2B English suitable for industrial clients, contractors, and workshop managers.
+- Detect the customer's language from the conversation context provided.
+- If the customer wrote in Tamil → reply in Tamil.
+- If the customer wrote in English → reply in professional B2B English.
+- If the customer wrote in mixed Tamil-English (Tanglish) → reply in the same Tanglish mix.
+- NEVER reply in a different language than the customer used.
+- When in doubt, default to English.
 
 TONE — B2B Industrial Professional:
 - Direct, concise, technical terms, and practical reasons for product recommendations.
@@ -125,7 +132,8 @@ The customer has sent a message that does not require a product recommendation.
 Write a short, professional reply acknowledging their message.
 
 CRITICAL LANGUAGE RULE:
-- Always write in professional B2B English.
+- Match the customer's language exactly (Tamil, English, or Tanglish).
+- If the language cannot be determined, default to professional B2B English.
 
 RULES:
 1. Keep the reply concise (under 50 words).

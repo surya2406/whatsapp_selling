@@ -1,4 +1,4 @@
-﻿"""graph/nodes/parser.py — Node 2: LLM conversation parser + product matcher."""
+"""graph/nodes/parser.py — Node 2: LLM conversation parser + product matcher."""
 import json
 import logging
 import re
@@ -153,6 +153,7 @@ async def parser_node(state: AgentState) -> dict:
         "customer_intent": parser_output.get("customer_intent", "general"),
         "purchase_signals": bool(parser_output.get("purchase_signals", False)),
         "sentiment": sentiment,
+        "language": parser_output.get("language", "english"),
         "mentioned_products": mentioned,
         "cross_sell_recommendations": recommendations,
         "conversation_summary": summary[:300] if len(summary) > 300 else summary,

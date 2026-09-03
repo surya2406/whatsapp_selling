@@ -1,0 +1,10 @@
+{
+  "name": "Dormant customer win-back flow",
+  "trigger": { "segment": "dormant", "min_days_since_order": 90 },
+  "sentiment_gate": true,
+  "steps": [
+    { "step": 1, "action": "check_sentiment", "on_negative": "send_empathy_template" },
+    { "step": 2, "action": "cross_sell_agent", "input": "last_purchased_product" },
+    { "step": 3, "action": "send_message", "template": "winback_we_miss_you" }
+  ]
+}

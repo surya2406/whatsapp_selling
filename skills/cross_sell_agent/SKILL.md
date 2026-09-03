@@ -30,7 +30,7 @@ Call `get_customer_profile` with the customer's phone number to get:
 - `rfm_score`: 1-5
 
 ### Step 2: Load the Right Playbook
-Use `load_skill_resource` to load the matching playbook from `assets/playbooks/`:
+Call `load_skill('cross-sell-agent')` to load this skill's full instructions, then select the matching playbook from `assets/playbooks/`:
 - `new_customer.json` → segment = "new"
 - `repeat_buyer.json` → segment = "repeat"
 - `high_value.json` → segment = "high_value"

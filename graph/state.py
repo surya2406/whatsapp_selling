@@ -1,4 +1,4 @@
-﻿"""
+"""
 graph/state.py — Shared state for the LangGraph WhatsApp Cross-Sell Pipeline.
 
 All data flows through this single typed dict across all nodes.
@@ -24,6 +24,7 @@ class AgentState(TypedDict):
     customer_intent: str
     purchase_signals: bool
     sentiment: str                # positive | neutral | negative
+    language: str                 # "tamil" | "english" | "tanglish"
     mentioned_products: list      # [{product_id, product_name}]
     cross_sell_recommendations: list
 

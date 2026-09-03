@@ -1,0 +1,9 @@
+{
+  "name": "New customer onboarding flow",
+  "trigger": { "segment": "new", "min_orders": 0 },
+  "sentiment_gate": false,
+  "steps": [
+    { "step": 1, "action": "cross_sell_agent", "input": "mentioned_product" },
+    { "step": 2, "action": "send_message", "template": "new_customer_welcome" }
+  ]
+}

@@ -62,12 +62,27 @@ async def message_fill_node(state: AgentState) -> dict:
 
     template_key = agent_json["template_key"]
     template_data = agent_json.get("template_data", {})
-    logger.debug("[message_fill_node] template_key=%s data_keys=%s", template_key, list(template_data.keys()))
+    language = state.get("language", "english")  # "tamil" | "english" | "tanglish"
+    logger.debug(
+        "[message_fill_node] template_key=%s language=%s data_keys=%s",
+        template_key, language, list(template_data.keys())
+    )
 
-    # Load the template string
+    # Load the template string — try language-specific variant first
     try:
         from agent.tools.core_tools import get_message_template
-        template_str = await get_message_template(template_key)
+        # For English customers, try an _en variant (e.g. "repeat_buyer_offer_en")
+        if language == "english":
+            english_key = f"{template_key}_en"
+            try:
+                template_str = await get_message_template(english_key)
+                logger.debug("[message_fill_node] Using English variant template_key=%s", english_key)
+            except Exception:
+                # No English variant — fall back to base template (LLM will translate tone)
+                template_str = await get_message_template(template_key)
+                logger.debug("[message_fill_node] No _en variant found, using base template_key=%s", template_key)
+        else:
+            template_str = await get_message_template(template_key)
     except Exception as exc:
         logger.error("[message_fill_node] Failed to load template key=%s: %s", template_key, exc)
         template_str = agent_output  # fallback
@@ -76,13 +91,20 @@ async def message_fill_node(state: AgentState) -> dict:
     data_context = json.dumps(template_data, ensure_ascii=False)
     user_prompt = MESSAGE_FILL_USER_TEMPLATE.format(template=template_str, data=data_context)
 
+    # Inject detected language so LLM matches customer's language
+    language_instruction = (
+        f"\n\nDETECTED CUSTOMER LANGUAGE: {language}. "
+        f"Write the reply in {language} to match the customer."
+    )
+    system_prompt = MESSAGE_FILL_SYSTEM_PROMPT + language_instruction
+
     try:
-        logger.debug("[message_fill_node] Calling LLM for template fill model=%s", settings.ollama_model)
+        logger.debug("[message_fill_node] Calling LLM for template fill model=%s language=%s", settings.ollama_model, language)
         response = await acompletion(
             model=f"ollama_chat/{settings.ollama_model}",
             api_base=settings.ollama_api_base,
             messages=[
-                {"role": "system", "content": MESSAGE_FILL_SYSTEM_PROMPT},
+                {"role": "system", "content": system_prompt},
                 {"role": "user", "content": user_prompt},
             ],
             temperature=0.2,
@@ -90,8 +112,8 @@ async def message_fill_node(state: AgentState) -> dict:
         )
         filled = response.choices[0].message.content.strip()
         logger.info(
-            "[message_fill_node] DONE customer_id=%s filled_len=%d preview=%s",
-            customer_id, len(filled), filled[:80]
+            "[message_fill_node] DONE customer_id=%s language=%s filled_len=%d preview=%s",
+            customer_id, language, len(filled), filled[:80]
         )
         return {"generated_message": filled}
 
